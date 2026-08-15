@@ -14400,13 +14400,13 @@
       "name": "dsh-shelf",
       "author": "zoahdev",
       "category": "session",
-      "description": "Session lifecycle for DSH: export (md/json/jsonl), archive/restore, trash, search, and stats. Zero dependencies, read-only by default, nothing ever deleted without an explicit move.",
-      "description_zh": "DSH 会话生命周期管理：导出（md/json/jsonl）、归档/恢复、回收站、搜索、统计。零依赖、默认只读，引擎从不删除任何东西。",
+      "description": "Session lifecycle for DSH: web panel + CLI (export/archive/trash/search/stats/report), CJK bigram Chinese search. Zero dependencies, read-only by default, nothing ever deleted without an explicit move.",
+      "description_zh": "DSH 会话生命周期：Web 面板 + CLI（导出/归档/回收站/搜索/统计/周报），中文 bigram 搜索。零依赖、默认只读，引擎从不删除任何东西。",
       "install": {
         "target": "npm",
         "spec": "dsh-shelf"
       },
-      "version": "0.1.0",
+      "version": "0.3.0",
       "homepage": "https://github.com/zoahdev/dsh-shelf",
       "verified": true,
       "tags": [
