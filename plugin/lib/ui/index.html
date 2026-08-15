@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dsh-subscribe · in-harness market</title>
+<style>
+  :root { color-scheme: dark; --bg:#1b2838; --bg2:#171a21; --panel:#16202d; --line:#1e2c3c; --ink:#c7d5e0; --muted:#8f98a0; --accent:#66c0f4; --green:#2a6b3d; --green-ink:#a3d9b1; --danger:#6d2f2f; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; line-height:1.55; }
+  a { color:var(--accent); }
+  header { background:var(--bg2); border-bottom:1px solid #000; padding:12px 20px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  header b { color:#fff; font-size:18px; }
+  header .sub { color:var(--muted); font-size:12px; }
+  header .spacer { flex:1; }
+  .wrap { max-width:1200px; margin:0 auto; padding:16px 20px 60px; }
+  .bar { background:#1e2c3c; border-radius:10px; padding:12px 14px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:14px 0; }
+  input[type=search] { background:#2a475e; border:1px solid transparent; color:#fff; padding:9px 12px; border-radius:6px; min-width:220px; flex:1; }
+  select { background:#2a475e; color:var(--ink); border:0; border-radius:6px; padding:9px 10px; }
+  .cats { display:flex; gap:8px; flex-wrap:wrap; width:100%; }
+  .cat { background:#2a475e; color:var(--ink); border:0; border-radius:14px; padding:5px 12px; font-size:12px; cursor:pointer; }
+  .cat.active { background:var(--accent); color:#1b2838; font-weight:600; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:14px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px; display:flex; flex-direction:column; gap:9px; }
+  .card h3 { margin:0; color:#fff; font-size:16px; }
+  .meta { color:var(--muted); font-size:12px; }
+  .stars { color:#f4c542; font-weight:600; }
+  .desc { color:var(--ink); font-size:13px; flex:1; }
+  .badge { font-size:11px; padding:2px 9px; border-radius:12px; background:#2a475e; color:var(--muted); }
+  .badge.ok { background:var(--green); color:var(--green-ink); }
+  .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  button { font:inherit; background:var(--accent); color:#1b2838; border:0; border-radius:6px; padding:7px 12px; font-weight:600; cursor:pointer; }
+  button.ghost { background:#2a475e; color:var(--ink); }
+  button.small { padding:5px 10px; font-size:12px; }
+  button:disabled { opacity:.5; cursor:wait; }
+  button.installed { background:var(--green); color:#fff; }
+  button.danger { background:var(--danger); color:#f2c4c4; }
+  .progress { background:#0d1117; border:1px solid var(--line); border-radius:8px; padding:10px 12px; font-family:ui-monospace,Consolas,monospace; font-size:12px; color:#a5d6ff; margin:10px 0; display:none; }
+  .progress.show { display:block; }
+  .toast { position:fixed; bottom:22px; left:50%; transform:translateX(-50%); background:#2a475e; color:#fff; border:1px solid var(--accent); border-radius:10px; padding:11px 18px; font-size:13px; box-shadow:0 6px 24px rgba(0,0,0,.4); z-index:60; opacity:0; transition:opacity .2s; max-width:92vw; }
+  .toast.show { opacity:1; }
+  .hint { background:#10202e; border:1px solid var(--line); border-radius:8px; padding:10px 12px; font-size:13px; color:var(--muted); margin-top:10px; }
+  .empty { color:var(--muted); text-align:center; padding:40px 0; }
+  @media (max-width:640px){ .wrap { padding:10px 12px 50px; } }
+</style>
+</head>
+<body>
+<header>
+  <b>dsh-subscribe</b><span class="sub">in-harness market · 536 plugins</span>
+  <div class="spacer"></div>
+  <span class="sub"><span id="installedCount">0</span> installed</span>
+  <button id="langBtn" class="ghost small">English</button>
+</header>
+<div class="wrap">
+  <div class="progress" id="progress"></div>
+  <div id="banner"></div>
+  <div class="bar">
+    <input id="q" type="search" placeholder="搜索插件…">
+    <select id="sort"><option value="stars">按星标</option><option value="verified">已验证优先</option><option value="name">按名称</option></select>
+    <div class="cats" id="cats"></div>
+  </div>
+  <div class="row" style="margin-bottom:10px">
+    <span class="sub" style="color:var(--muted)">已订阅 <b id="subCount">0</b></span>
+    <button id="exportBtn" class="ghost small">导出清单</button>
+    <button id="copyCmd" class="ghost small">复制同步命令</button>
+    <button id="refreshBtn" class="ghost small">刷新</button>
+  </div>
+  <main class="grid" id="grid"><p class="empty">加载中…</p></main>
+  <div class="hint">安装按钮直接调用本机 dsh CLI；git 插件若被 allowBuilds 拦截，页面会提示一键批准。订阅工作流：点「订阅」→ 导出清单 → 在终端跑 sync。</div>
+</div>
+<div id="toast" class="toast" role="status"></div>
+<script>
+const STORE_KEY = 'dsh-subscribe:v2'
+const I18N = {
+  zh: { installed: '已安装', install: '一键安装', uninstall: '卸载', update: '更新', subscribe: '订阅', subscribed: '已订阅 ✓', copyInstall: '复制命令', verified: '已验证', community: '社区', loading: '加载中…', noMatch: '没有匹配的插件。', updated: '可更新', approve: '批准构建脚本并重装', copySync: '同步命令已复制', refresh: '已刷新', fail: '操作失败：' },
+  en: { installed: 'Installed', install: 'Install', uninstall: 'Uninstall', update: 'Update', subscribe: 'Subscribe', subscribed: 'Subscribed ✓', copyInstall: 'Copy cmd', verified: 'Verified', community: 'Community', loading: 'Loading…', noMatch: 'No matching plugins.', updated: 'Update available', approve: 'Approve builds & reinstall', copySync: 'Sync command copied', refresh: 'Refreshed', fail: 'Request failed: ' },
+}
+let lang = navigator.language && navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en'
+let registry = { plugins: [], count: 0 }
+let installed = {}
+let updates = {}
+let subs = []
+let activeCat = 'all'
+let query = ''
+let sort = 'stars'
+let busy = false
+
+const $ = (id) => document.getElementById(id)
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]))
+const t = (k) => I18N[lang][k] ?? k
+
+function toast(msg) {
+  const el = $('toast'); el.textContent = msg; el.classList.add('show')
+  clearTimeout(toast._timer); toast._timer = setTimeout(() => el.classList.remove('show'), 2600)
+}
+async function api(path, options = {}) {
+  const res = await fetch(path, options)
+  const data = await res.json().catch(() => ({}))
+  if (!res.ok) throw new Error(data.error ?? `${res.status}`)
+  return data
+}
+function loadSubs() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(STORE_KEY) ?? '{"plugins":[]}')
+    subs = Array.isArray(raw) ? raw.map((id) => ({ id: String(id) })) : (Array.isArray(raw.plugins) ? raw.plugins : [])
+  } catch { subs = [] }
+}
+function saveSubs() { localStorage.setItem(STORE_KEY, JSON.stringify({ version: 2, profile: 'web', plugins: subs })) }
+function catLabel(cat) {
+  const map = registry.categories?.[cat]
+  return map ? (lang === 'zh' ? map.zh : map.en) : cat
+}
+function installedNameOf(spec) {
+  const hit = Object.entries(installed).find(([, s]) => s === spec)
+  if (hit) return hit[0]
+  return String(spec).split('/').pop().replace(/^github:/, '').replace(/#.*$/, '')
+}
+function card(p) {
+  const on = subs.some((s) => s.id === p.id)
+  const spec = p.install?.spec ?? ''
+  const isInstalled = Object.keys(installed).includes(spec)
+    || Object.values(installed).some((s) => s === spec || (s && spec && (s.startsWith(spec) || spec.startsWith(s))))
+  const hasUpdate = updates[p.id]?.updateAvailable || updates[p.install?.spec]?.updateAvailable
+  const desc = lang === 'zh' ? (p.description_zh || p.description) : (p.description || p.description_zh)
+  const instName = isInstalled ? installedNameOf(p.install.spec) : ''
+  return `<div class="card">
+    <div class="row"><h3>${esc(p.name)}</h3><span class="badge ${p.verified ? 'ok' : ''}">${p.verified ? '✓ ' + t('verified') : t('community')}</span></div>
+    <div class="meta">${esc(p.author)} · ${esc(catLabel(p.category))} ${typeof p.stars === 'number' && p.stars > 0 ? '<span class="stars">★ ' + p.stars + '</span>' : ''}</div>
+    <div class="desc">${esc(desc)}</div>
+    <div class="row">
+      ${isInstalled
+        ? `<button class="small installed" data-uninstall="${esc(instName)}">${t('installed')}</button>${hasUpdate ? `<button class="small" data-update="${esc(instName)}">${t('update')}</button>` : ''}`
+        : `<button class="small" data-install="${esc(p.install.spec)}">${t('install')}</button>`}
+      <button class="small ghost ${on ? 'installed' : ''}" data-sub="${esc(p.id)}">${on ? t('subscribed') : t('subscribe')}</button>
+      <button class="small ghost" data-copy="${esc(p.install.spec)}">${t('copyInstall')}</button>
+    </div>
+  </div>`
+}
+function render() {
+  $('langBtn').textContent = lang === 'zh' ? 'English' : '中文'
+  document.documentElement.lang = lang
+  $('installedCount').textContent = Object.keys(installed).length
+  $('subCount').textContent = subs.length
+  const cats = new Set(['all'])
+  for (const p of registry.plugins) cats.add(p.category)
+  $('cats').innerHTML = [...cats].map((c) => `<button class="cat ${c === activeCat ? 'active' : ''}" data-cat="${esc(c)}">${c === 'all' ? (lang === 'zh' ? '全部' : 'All') : esc(catLabel(c))}</button>`).join('')
+  document.querySelectorAll('.cat').forEach((b) => { b.onclick = () => { activeCat = b.dataset.cat; render() } })
+  const q = query.trim().toLowerCase()
+  let list = registry.plugins.filter((p) => (activeCat === 'all' || p.category === activeCat) && (q === '' || `${p.name} ${p.id} ${p.author} ${p.description} ${p.description_zh ?? ''}`.toLowerCase().includes(q)))
+  if (sort === 'stars') list.sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0))
+  if (sort === 'verified') list.sort((a, b) => (b.verified ? 1 : 0) - (a.verified ? 1 : 0))
+  if (sort === 'name') list.sort((a, b) => a.name.localeCompare(b.name))
+  $('grid').innerHTML = list.map(card).join('') || `<p class="empty">${t('noMatch')}</p>`
+  bindButtons()
+}
+function bindButtons() {
+  document.querySelectorAll('[data-install]').forEach((b) => { b.onclick = () => doAction('install', { spec: b.dataset.install }) })
+  document.querySelectorAll('[data-uninstall]').forEach((b) => { b.onclick = () => doAction('uninstall', { spec: b.dataset.uninstall }) })
+  document.querySelectorAll('[data-update]').forEach((b) => { b.onclick = () => doAction('update', { spec: b.dataset.update }) })
+  document.querySelectorAll('[data-sub]').forEach((b) => {
+    b.onclick = () => {
+      const id = b.dataset.sub
+      const i = subs.findIndex((s) => s.id === id)
+      if (i === -1) subs.push({ id, addedAt: new Date().toISOString() }); else subs.splice(i, 1)
+      saveSubs(); render()
+    }
+  })
+  document.querySelectorAll('[data-copy]').forEach((b) => {
+    b.onclick = () => {
+      const cmd = `dsh plugin --profile web add ${b.dataset.copy}`
+      navigator.clipboard.writeText(cmd).then(() => toast(cmd))
+    }
+  })
+}
+async function doAction(kind, payload) {
+  if (busy) return
+  busy = true
+  setBusy(true)
+  try {
+    if (kind === 'install') $('progress').textContent = `installing ${payload.spec} …`
+    if (kind === 'install') $('progress').classList.add('show')
+    const res = await api(`/dsh-subscribe/${kind}`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(kind === 'install' ? { spec: payload.spec } : { name: payload.name }),
+    })
+    $('progress').classList.remove('show')
+    if (res.ignoredBuilds && res.ignoredBuilds.length) {
+      $('banner').innerHTML = `<div class="hint">⚠ ${lang === 'zh' ? '构建脚本被拦截：' : 'Build scripts blocked: '}${esc(res.ignoredBuilds.join(', '))}
+        <button class="small" id="approveBtn">${t('approve')}</button></div>`
+      $('approveBtn').onclick = async () => {
+        await api('/dsh-subscribe/approve-builds', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ packages: res.ignoredBuilds }) })
+        $('banner').innerHTML = ''
+        toast(lang === 'zh' ? '已批准，请重试安装' : 'Approved, retry install')
+      }
+    }
+    toast(kind === 'install' ? t('installed') : lang === 'zh' ? '完成' : 'Done')
+    await loadAll()
+  } catch (error) {
+    toast(t('fail') + error.message)
+    $('progress').classList.remove('show')
+  } finally {
+    busy = false
+    setBusy(false)
+  }
+}
+function setBusy(value) {
+  document.querySelectorAll('button').forEach((b) => { if (b.id !== 'langBtn' && b.id !== 'refreshBtn') b.disabled = value })
+}
+async function loadAll() {
+  try {
+    const [reg, inst] = await Promise.all([api('/dsh-subscribe/registry'), api('/dsh-subscribe/installed')])
+    registry = reg; installed = inst.installed ?? {}
+    api('/dsh-subscribe/updates').then((d) => { updates = d.updates ?? {}; render() }).catch(() => {})
+    render()
+  } catch (error) {
+    $('grid').innerHTML = `<p class="empty">${t('fail')}${esc(error.message)}</p>`
+  }
+}
+async function pollStatus() {
+  try {
+    const s = await api('/dsh-subscribe/status')
+    if (s.active) {
+      $('progress').classList.add('show')
+      $('progress').textContent = `${s.target} · ${s.seconds}s · ${s.lastLine}`
+      setTimeout(pollStatus, 1200)
+    } else {
+      $('progress').classList.remove('show')
+    }
+  } catch { setTimeout(pollStatus, 5000) }
+}
+$('q').oninput = (e) => { query = e.target.value; render() }
+$('sort').onchange = (e) => { sort = e.target.value; render() }
+$('langBtn').onclick = () => { lang = lang === 'zh' ? 'en' : 'zh'; render() }
+$('refreshBtn').onclick = () => { loadAll(); toast(t('refresh')) }
+$('exportBtn').onclick = () => {
+  const payload = { version: 2, profile: 'web', plugins: subs.map((s) => { const p = registry.plugins.find((x) => x.id === s.id); return p ? { id: p.id, name: p.name, spec: p.install.spec, addedAt: s.addedAt, installed: false } : null }).filter(Boolean) }
+  const a = document.createElement('a')
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' }))
+  a.download = 'subscriptions.json'; a.click(); URL.revokeObjectURL(a.href)
+}
+$('copyCmd').onclick = () => navigator.clipboard.writeText('git clone https://github.com/zoahdev/dsh-subscribe && cd dsh-subscribe\nnode scripts/dsh-subscribe.mjs sync --profile web').then(() => toast(t('copySync')))
+loadSubs(); loadAll(); pollStatus()
+</script>
+</body>
+</html>
