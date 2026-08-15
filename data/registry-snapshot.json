@@ -3,7 +3,7 @@
   "url": "https://awesome-dsh-plugin.com",
   "source": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
   "updated": "2026-08-15",
-  "count": 565,
+  "count": 566,
   "categories": {
     "ui": {
       "en": "UI Enhancements",
@@ -8528,6 +8528,21 @@
       "npm": null,
       "stars": 0,
       "install": "dsh plugin --profile web add github:swaylq/dsh-wildmon",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-shelf",
+      "owner": "zoahdev",
+      "url": "https://github.com/zoahdev/dsh-shelf",
+      "page": null,
+      "category": "session",
+      "description": {
+        "en": "Session lifecycle for DSH: export (md/json/jsonl), archive/restore, trash, search, and stats. Zero dependencies, read-only by default, nothing ever deleted without an explicit move.",
+        "zh": "DSH 会话生命周期管理：导出（md/json/jsonl）、归档/恢复、回收站、搜索、统计。零依赖、默认只读，引擎从不删除任何东西。"
+      },
+      "npm": "dsh-shelf",
+      "stars": 0,
+      "install": "npx dsh-shelf",
       "added": "2026-08-15"
     }
   ]
