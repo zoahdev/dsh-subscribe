@@ -68,6 +68,9 @@
   .row a { font-size:12px; }
   .btn.subscribed { background:var(--green); color:#fff; }
   .empty { color:var(--muted); text-align:center; padding:40px 0; }
+  .compat { display:flex; gap:8px; align-items:center; justify-content:center; flex-wrap:wrap; background:#10202e; border:1px solid var(--line); border-radius:8px; padding:8px 12px; margin-top:12px; font-size:12px; color:var(--muted); }
+  .compat b { color:var(--green-ink); }
+  .compat a { color:var(--accent); }
   .wizard { background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:20px; margin-top:24px; }
   .steps { display:flex; gap:12px; flex-wrap:wrap; }
   .step { flex:1; min-width:220px; background:#10202e; border:1px solid var(--line); border-radius:var(--radius); padding:14px; }
@@ -107,6 +110,7 @@
     <p data-i18n="heroDesc">DeepSeek Harness 的 Steam 式插件市场：浏览 <b id="totalCount">500+</b> 个社区插件，一键订阅，导出清单，一条命令全部同步进你的 dsh profile。</p>
     <div class="cmd"><code id="heroCmd">git clone https://github.com/zoahdev/dsh-subscribe && cd dsh-subscribe</code><button id="heroCopy" class="btn small" type="button" data-i18n="copy">复制</button></div>
     <p style="margin-top:12px"><button id="startWizard" class="btn" type="button" data-i18n="start">开始使用 →</button></p>
+    <div class="compat"><span data-i18n="compatBadge"></span><a href="https://github.com/zoahdev/dsh-ecosystem/blob/main/docs/release-compat/0.1.0-rc.6.md" target="_blank" rel="noopener" data-i18n="compatReport"></a></div>
   </section>
 
   <div class="subs" style="justify-content:center;margin-bottom:8px">
@@ -227,6 +231,8 @@ const I18N = {
     copySubscribeCmd: '复制订阅同步流程',
     disclosure: '列出一项 ≠ 背书：第三方插件是别人的代码，安装前请自行判断信任。',
     noDesc: '（该插件暂无中文描述）',
+    compatReport: '官方 release 兼容报告 →',
+    compatBadge: '✓ 已验证 dsh 0.1.0-rc.6 · 6 仓库 CI 全绿',
   },
   en: {
     heroTitle: 'Subscribe once, sync with one command',
@@ -275,6 +281,8 @@ const I18N = {
     copySubscribeCmd: 'Copy subscribe flow',
     disclosure: 'Listing ≠ endorsement: plugins are third-party code — trust what you install.',
     noDesc: '（No English description yet）',
+    compatReport: 'Official release compatibility report →',
+    compatBadge: '✓ Verified against dsh 0.1.0-rc.6 · 6-repo CI green',
   },
 }
 
@@ -384,6 +392,8 @@ function sorted(list) {
 function render() {
   $('langBtn').textContent = lang === 'zh' ? 'English' : '中文'
   document.documentElement.lang = lang
+  document.querySelectorAll('[data-i18n]').forEach((el) => { el.innerHTML = t(el.dataset.i18n) })
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => { el.placeholder = t(el.dataset.i18nPlaceholder) })
   $('totalCount').textContent = registry.count || registry.plugins.length
   $('footerCount').textContent = registry.count || registry.plugins.length
   $('footerVerified').textContent = registry.verifiedCount || registry.plugins.filter((p) => p.verified).length
