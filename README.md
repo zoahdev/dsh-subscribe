@@ -2,14 +2,14 @@
 
 English | [中文](#中文)
 
-**Steam-style plugin marketplace for DeepSeek Harness.** Browse **535+
+**Steam-style plugin marketplace for DeepSeek Harness.** Browse **536+
 community plugins** on the web storefront, subscribe to the ones you want,
 then run **one command** to install everything into your dsh profile. A
 zero-dependency CLI and an in-harness plugin (search/stats/install commands
 from the chat) are included.
 
 - 🏪 Storefront: <https://zoahdev.github.io/dsh-subscribe/>
-- 📦 Registry: [registry.json](./registry.json) — 535 plugins, 19 verified by
+- 📦 Registry: [registry.json](./registry.json) — 536 plugins, 20 verified by
   zoahdev, refreshed from [awesome-dsh-plugin.com](https://awesome-dsh-plugin.com)
 - 🔧 CLI: `node scripts/dsh-subscribe.mjs sync --profile web`
 - 🤖 In-harness plugin: `market_search`, `market_stats`,
@@ -71,7 +71,7 @@ registers three tools:
 
 | Tool | Purpose |
 | --- | --- |
-| `market_search` | Search 535+ plugins by query/category/verified flag, sorted by stars |
+| `market_search` | Search 536+ plugins by query/category/verified flag, sorted by stars |
 | `market_stats` | Total/verified counts and per-category breakdown |
 | `market_install_command` | Returns the exact `dsh plugin add` commands for the user to run |
 
@@ -163,7 +163,7 @@ is a complementary take, not a replacement:
 
 | | dsh-subscribe | dsh-market |
 | --- | --- | --- |
-| Registry size | 535+ (awesome-dsh-plugin mirror + verified curation) | 300+ (awesome-dsh-plugin live) |
+| Registry size | 536+ (awesome-dsh-plugin mirror + verified curation) | 300+ (awesome-dsh-plugin live) |
 | One-click install inside web UI | — (copy command / CLI sync) | ✅ |
 | Steam-style subscription workflow | ✅ | — |
 | In-chat agent tools (search/stats/commands) | ✅ | — |
@@ -193,7 +193,7 @@ MIT — [dsh-subscribe](https://github.com/zoahdev/dsh-subscribe) ·
 ## 中文
 
 **dsh-subscribe** —— DeepSeek Harness 的 Steam 式插件市场：在网页商店浏览
-**535+ 社区插件**、一键订阅，然后**一条命令**把全部订阅装进你的 dsh
+**536+ 社区插件**、一键订阅，然后**一条命令**把全部订阅装进你的 dsh
 profile。自带零依赖 CLI 和 in-harness 插件（对话里直接搜索/统计/生成安装命令）。
 
 ### 快速开始（网页）
@@ -262,7 +262,7 @@ handler 并断言** → 装进全新 DSH profile、`--dump-config` 验证、`dsh
 
 互补而非替代：dsh-market 在 Web UI 里做可视化一键安装/主题/更新；
 dsh-subscribe 提供 Steam 式订阅同步、零依赖 CLI、对话内 agent 工具和
-535+ 全量注册表。两个一起用体验最佳。
+536+ 全量注册表。两个一起用体验最佳。
 
 ## License
 
