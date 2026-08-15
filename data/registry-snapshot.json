@@ -2,8 +2,8 @@
   "name": "awesome-dsh-plugin",
   "url": "https://awesome-dsh-plugin.com",
   "source": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
-  "updated": "2026-08-15",
-  "count": 570,
+  "updated": "2026-08-16",
+  "count": 572,
   "categories": {
     "ui": {
       "en": "UI Enhancements",
@@ -8604,6 +8604,36 @@
       "stars": 0,
       "install": "dsh plugin --profile web add github:GIStudio/SpatialHarness",
       "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-mmx-bridge",
+      "owner": "welsione",
+      "url": "https://github.com/welsione/dsh-mmx-bridge",
+      "page": null,
+      "category": "multimodal",
+      "description": {
+        "en": "MiniMax multimodal bridge for DeepSeek Harness.",
+        "zh": "DeepSeek Harness 的 MiniMax 多模态桥接。"
+      },
+      "npm": "dsh-mmx-bridge",
+      "stars": 0,
+      "install": "dsh plugin --profile web add dsh-mmx-bridge",
+      "added": "2026-08-16"
+    },
+    {
+      "name": "dsh-goodmemory",
+      "owner": "hjqcan",
+      "url": "https://github.com/hjqcan/dsh-goodmemory",
+      "page": null,
+      "category": "memory",
+      "description": {
+        "en": "Automatic cross-session memory for DeepSeek Harness.",
+        "zh": "DeepSeek Harness 自动跨会话记忆。"
+      },
+      "npm": "dsh-goodmemory",
+      "stars": 0,
+      "install": "dsh plugin --profile web add dsh-goodmemory",
+      "added": "2026-08-16"
     }
   ]
 }
