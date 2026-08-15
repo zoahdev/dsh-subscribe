@@ -3,7 +3,7 @@
   "url": "https://awesome-dsh-plugin.com",
   "source": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
   "updated": "2026-08-15",
-  "count": 563,
+  "count": 565,
   "categories": {
     "ui": {
       "en": "UI Enhancements",
@@ -8498,6 +8498,36 @@
       "npm": null,
       "stars": 0,
       "install": "dsh plugin --profile web add github:zoahdev/dsh-pet-evolve",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-compass",
+      "owner": "Happy2Git",
+      "url": "https://github.com/Happy2Git/dsh-compass",
+      "page": null,
+      "category": "ui",
+      "description": {
+        "en": "Right-side context file panel for dsh web: files + git tabs beside the conversation.",
+        "zh": "dsh web 右侧上下文文件面板：会话旁的文件 + Git 标签页。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:Happy2Git/dsh-compass",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-wildmon",
+      "owner": "swaylq",
+      "url": "https://github.com/swaylq/dsh-wildmon",
+      "page": null,
+      "category": "fun",
+      "description": {
+        "en": "Pokemon-style capture and collection from your real work, zero token cost.",
+        "zh": "宝可梦式捕捉收集：你的真实工作就是草丛，零 token 消耗。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:swaylq/dsh-wildmon",
       "added": "2026-08-15"
     }
   ]
