@@ -1,0 +1,65 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  registry-and-cli:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Registry contract checks
+        run: node scripts/check-registry.mjs
+      - name: CLI tests
+        run: node --test tests/cli.test.mjs
+      - name: CLI list smoke
+        run: node scripts/dsh-subscribe.mjs list --json > /tmp/registry-list.json && node -e "const d=require('/tmp/registry-list.json'); if(d.total<500) process.exit(1); console.log('CLI list OK:', d.total, 'plugins')"
+
+  plugin:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: plugin
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: plugin/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - name: Plugin unit tests
+        run: node --test test/plugin.test.mjs
+      - name: Pack
+        run: pnpm pack
+      - name: Packaged runtime smoke (real tool invocation)
+        run: node scripts/runtime-smoke.mjs ./dsh-subscribe-0.2.0.tgz
+
+  dsh-smoke:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: plugin
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: plugin/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - name: Pack
+        run: pnpm pack
+      - name: Fresh DSH profile install + boot smoke
+        run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/dsh-smoke.ps1 -Tgz .\dsh-subscribe-0.2.0.tgz
