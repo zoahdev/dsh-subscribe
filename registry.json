@@ -14325,13 +14325,13 @@
       "name": "dsh-pet-evolve",
       "author": "zoahdev",
       "category": "fun",
-      "description": "The pet that grows with your agent: 5 evolution stages from real signals (verified rules, sessions, tool calls, compactions), agent-state mirroring, one-click growth share card PNG. Zero dependencies, 100% local.",
-      "description_zh": "会随 agent 成长的宠物：真实信号（已验证规则/会话/工具调用/压缩）驱动 5 阶段进化，镜像 agent 状态，一键导出成长分享卡 PNG。零依赖、全本地。",
+      "description": "The pet that grows with your agent: 5 evolution stages from real signals, 4 skins, focus timer, agent-state mirroring, one-click growth share card PNG. Zero dependencies, 100% local.",
+      "description_zh": "会随 agent 成长的宠物：真实信号驱动 5 阶段进化，4 款皮肤、专注计时、镜像 agent 状态、一键导出成长分享卡 PNG。零依赖、全本地。",
       "install": {
         "target": "git",
         "spec": "github:zoahdev/dsh-pet-evolve"
       },
-      "version": "0.1.0",
+      "version": "0.2.0",
       "homepage": "https://github.com/zoahdev/dsh-pet-evolve",
       "verified": true,
       "tags": [
