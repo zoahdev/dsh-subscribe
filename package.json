@@ -1,0 +1,41 @@
+{
+  "name": "dsh-subscribe",
+  "version": "0.2.0",
+  "description": "Steam-style plugin marketplace for DeepSeek Harness: subscribe on the web, sync with one command. 500+ community plugins, verified curation, zero-dependency CLI.",
+  "type": "module",
+  "bin": {
+    "dsh-subscribe": "./scripts/dsh-subscribe.mjs"
+  },
+  "files": [
+    "registry.json",
+    "scripts",
+    "docs",
+    "plugin",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build:registry": "node scripts/build-registry.mjs",
+    "check:registry": "node scripts/check-registry.mjs",
+    "test": "node --test tests/cli.test.mjs",
+    "test:cli": "node scripts/check-registry.mjs && node scripts/dsh-subscribe.mjs list --json > /dev/null"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "marketplace",
+    "market",
+    "subscribe",
+    "plugin-manager"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoahdev/dsh-subscribe.git"
+  },
+  "homepage": "https://zoahdev.github.io/dsh-subscribe/",
+  "engines": {
+    "node": ">=18"
+  }
+}
