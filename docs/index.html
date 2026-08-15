@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dsh-subscribe · DeepSeek Harness 插件市场</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #1b2838; color: #c7d5e0; font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+  header { background: #171a21; padding: 14px 22px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  header h1 { margin: 0; font-size: 20px; color: #fff; }
+  header .sub { color: #8f98a0; font-size: 12px; }
+  .spacer { flex: 1; }
+  #count { color: #66c0f4; font-weight: 600; }
+  .bar { padding: 12px 22px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; background: #1e2c3c; }
+  input[type=search] { background: #2a475e; border: 1px solid #1b2838; color: #fff; padding: 8px 12px; border-radius: 4px; min-width: 240px; }
+  button { background: #66c0f4; color: #1b2838; border: 0; border-radius: 4px; padding: 8px 14px; font-weight: 600; cursor: pointer; }
+  button.secondary { background: #2a475e; color: #c7d5e0; }
+  button.subscribed { background: #2a6b3d; color: #fff; }
+  .cats { display: flex; gap: 8px; flex-wrap: wrap; }
+  .cat { background: #2a475e; color: #c7d5e0; border: 0; border-radius: 12px; padding: 4px 12px; font-size: 12px; cursor: pointer; }
+  .cat.active { background: #66c0f4; color: #1b2838; }
+  main { max-width: 1200px; margin: 0 auto; padding: 20px 22px 80px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .card { background: #16202d; border: 1px solid #1e2c3c; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+  .card h3 { margin: 0; color: #fff; font-size: 16px; }
+  .card .meta { color: #8f98a0; font-size: 12px; }
+  .card .desc { color: #c7d5e0; font-size: 13px; line-height: 1.5; flex: 1; }
+  .card .row { display: flex; align-items: center; gap: 8px; }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: #2a475e; color: #8f98a0; }
+  .badge.ok { background: #2a6b3d; color: #a3d9b1; }
+  .card a { color: #66c0f4; font-size: 12px; }
+  .hint { background: #10202e; border: 1px solid #1e2c3c; border-radius: 8px; padding: 14px; margin-top: 18px; }
+  .hint pre { background: #0d1117; color: #a5d6ff; padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 12px; }
+  footer { color: #8f98a0; font-size: 12px; text-align: center; padding: 20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>dsh-subscribe</h1>
+  <span class="sub">DeepSeek Harness 插件市场 · 像 Steam 一样一键订阅</span>
+  <div class="spacer"></div>
+  <span>已订阅 <span id="count">0</span></span>
+  <button id="export" class="secondary">导出订阅清单</button>
+  <button id="copycmd">复制同步命令</button>
+</header>
+<div class="bar">
+  <input id="q" type="search" placeholder="搜索插件…">
+  <div class="cats" id="cats"></div>
+</div>
+<main>
+  <div class="grid" id="grid"></div>
+  <div class="hint">
+    <b>订阅后如何安装（一条命令）</b>
+    <pre id="cmd">node dsh-subscribe.mjs sync --profile web</pre>
+    <span style="font-size:12px;color:#8f98a0">git 安装若被 pnpm 拦截，按 dsh CLI 打印的 allowBuilds 指引加一行后重跑 sync 即可。</span>
+  </div>
+</main>
+<footer>数据来源：<a href="https://github.com/zoahdev/dsh-subscribe/blob/main/registry.json">registry.json</a> · ✅ = 已审计（CI/Release/安装验证） · 市场主页 <a href="https://github.com/zoahdev/dsh-subscribe">GitHub</a></footer>
+<script>
+const REGISTRY_URL = 'https://raw.githubusercontent.com/zoahdev/dsh-subscribe/main/registry.json'
+const KEY = 'dsh-subscribe:v1'
+let registry = { plugins: [] }
+let subs = new Set(JSON.parse(localStorage.getItem(KEY) ?? '[]'))
+let activeCat = '全部'
+
+const $ = (id) => document.getElementById(id)
+const esc = (s) => s.replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]))
+
+function categories() {
+  const set = new Set(['全部'])
+  for (const p of registry.plugins) set.add(p.category)
+  return [...set]
+}
+
+function render() {
+  $('count').textContent = subs.size
+  $('cats').innerHTML = categories().map((c) => `<button class="cat ${c === activeCat ? 'active' : ''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('')
+  const q = $('q').value.trim().toLowerCase()
+  const list = registry.plugins.filter((p) => (activeCat === '全部' || p.category === activeCat) && (q === '' || (p.name + ' ' + p.id + ' ' + p.description).toLowerCase().includes(q)))
+  $('grid').innerHTML = list.map((p) => {
+    const on = subs.has(p.id)
+    return `<div class="card">
+      <div class="row"><h3>${esc(p.name)}</h3><span class="badge ${p.verified ? 'ok' : ''}">${p.verified ? '✅ 已验证' : '○ 未审计'}</span></div>
+      <div class="meta">${esc(p.author)} · ${esc(p.category)} · v${esc(p.version ?? '?')}</div>
+      <div class="desc">${esc(p.description)}</div>
+      <div class="row"><button class="${on ? 'subscribed' : ''}" data-id="${esc(p.id)}">${on ? '✓ 已订阅' : '订阅'}</button>
+      <a href="${esc(p.homepage)}" target="_blank" rel="noopener">主页 ↗</a></div>
+    </div>`
+  }).join('') || '<p style="color:#8f98a0">没有匹配的插件。</p>'
+  document.querySelectorAll('.cat').forEach((b) => b.onclick = () => { activeCat = b.dataset.cat; render() })
+  document.querySelectorAll('button[data-id]').forEach((b) => b.onclick = () => {
+    const id = b.dataset.id
+    if (subs.has(id)) subs.delete(id); else subs.add(id)
+    localStorage.setItem(KEY, JSON.stringify([...subs]))
+    render()
+  })
+}
+
+$('export').onclick = () => {
+  const payload = { version: 1, profile: 'web', plugins: [...subs].map((id) => {
+    const p = registry.plugins.find((x) => x.id === id)
+    return p ? { id: p.id, name: p.name, spec: p.install.target === 'npm' ? p.install.spec : p.install.spec, addedAt: new Date().toISOString(), installed: false } : null
+  }).filter(Boolean) }
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' })
+  const a = document.createElement('a')
+  a.href = URL.createObjectURL(blob)
+  a.download = 'subscriptions.json'
+  a.click()
+}
+
+$('copycmd').onclick = () => {
+  const cmd = 'git clone https://github.com/zoahdev/dsh-subscribe && cd dsh-subscribe\nnode scripts/dsh-subscribe.mjs sync --profile web'
+  navigator.clipboard.writeText(cmd).then(() => alert('已复制同步命令（先下载订阅清单，放到 dsh-subscribe 目录）'))
+}
+
+fetch(REGISTRY_URL).then((r) => r.json()).then((d) => { registry = d; render() }).catch(() => { $('grid').innerHTML = '<p style="color:#8f98a0">加载注册表失败，请刷新。</p>' })
+$('q').oninput = render
+</script>
+</body>
+</html>
