@@ -3,7 +3,7 @@
   "url": "https://awesome-dsh-plugin.com",
   "source": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
   "updated": "2026-08-16",
-  "count": 577,
+  "count": 578,
   "categories": {
     "ui": {
       "en": "UI Enhancements",
@@ -8708,6 +8708,21 @@
       "npm": null,
       "stars": 0,
       "install": "dsh plugin --profile web add github:FeatherHunter/dsh-opencode-palette",
+      "added": "2026-08-16"
+    },
+    {
+      "name": "dsh-archive-manager",
+      "owner": "jasonrale",
+      "url": "https://github.com/jasonrale/dsh-archive-manager",
+      "page": null,
+      "category": "ui",
+      "description": {
+        "en": "Archive management panel: reopen, unarchive, or permanently delete sessions, with search and native-feel UI.",
+        "zh": "归档管理面板：重新打开、取消归档、彻底删除会话，带搜索和原生质感 UI。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:jasonrale/dsh-archive-manager",
       "added": "2026-08-16"
     }
   ]
