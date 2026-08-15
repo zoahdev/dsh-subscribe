@@ -3,7 +3,7 @@
   "url": "https://awesome-dsh-plugin.com",
   "source": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
   "updated": "2026-08-15",
-  "count": 566,
+  "count": 570,
   "categories": {
     "ui": {
       "en": "UI Enhancements",
@@ -8543,6 +8543,66 @@
       "npm": "dsh-shelf",
       "stars": 0,
       "install": "npx dsh-shelf",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-realtime-voice",
+      "owner": "zfu691531-hash",
+      "url": "https://github.com/zfu691531-hash/dsh-realtime-voice",
+      "page": null,
+      "category": "multimodal",
+      "description": {
+        "en": "Realtime voice: the speech vendor handles listening/speaking, Harness handles reasoning and plugin dispatch.",
+        "zh": "实时语音：语音厂商负责听说，Harness 负责推理与插件调度。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:zfu691531-hash/dsh-realtime-voice",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-plugin-browser-use",
+      "owner": "coderdailyone",
+      "url": "https://github.com/coderdailyone/dsh-plugin-browser-use",
+      "page": null,
+      "category": "workflow",
+      "description": {
+        "en": "Security-first real-browser tools for DeepSeek Harness.",
+        "zh": "安全优先的真实浏览器工具套件。"
+      },
+      "npm": "dsh-plugin-browser-use",
+      "stars": 0,
+      "install": "dsh plugin --profile web add dsh-plugin-browser-use",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-plugin-web-search-tavily",
+      "owner": "coderdailyone",
+      "url": "https://github.com/coderdailyone/dsh-plugin-web-search-tavily",
+      "page": null,
+      "category": "workflow",
+      "description": {
+        "en": "Tavily backend for the built-in web_search tool.",
+        "zh": "给内置 web_search 换上 Tavily 后端。"
+      },
+      "npm": "dsh-plugin-web-search-tavily",
+      "stars": 0,
+      "install": "dsh plugin --profile web add dsh-plugin-web-search-tavily",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "spatialharness",
+      "owner": "GIStudio",
+      "url": "https://github.com/GIStudio/SpatialHarness",
+      "page": null,
+      "category": "workflow",
+      "description": {
+        "en": "WebGIS MCP integration: let DeepSeek Harness operate geographic information systems directly.",
+        "zh": "WebGIS MCP 集成：让 DeepSeek Harness 直接操作地理信息系统。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:GIStudio/SpatialHarness",
       "added": "2026-08-15"
     }
   ]
