@@ -157,3 +157,37 @@ test('routes mount, registry GET works, install validates origin/spec, UI serves
 
   disposer()
 })
+
+test('remounting the same profile disposes the previous route set (#1862 guard)', () => {
+  const routes = []
+  let removed = 0
+  const host = {
+    webServer: {
+      register(route) {
+        routes.push(route)
+        return () => { removed += 1 }
+      },
+    },
+  }
+  const config = {
+    profile: 'web',
+    runner: async () => ({ exitCode: 0, timedOut: false, cancelled: false, stdout: 'ok', stderr: '' }),
+    loadRegistry: async () => FIXTURE,
+  }
+
+  mountMarketRoutes(host, config)
+  const firstCount = routes.length
+  assert.ok(firstCount >= 10)
+
+  mountMarketRoutes(host, config)
+  assert.ok(removed >= firstCount, `expected previous disposers called, removed=${removed}`)
+  assert.equal(routes.length, firstCount * 2, 'new routes still registered after disposal')
+
+  const disposer = mountMarketRoutes(host, config)
+  assert.ok(removed >= firstCount * 2)
+  disposer()
+
+  const before = removed
+  mountMarketRoutes(host, config)
+  assert.equal(removed, before, 'no stale disposer after explicit cleanup')
+})
