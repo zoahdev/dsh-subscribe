@@ -1,6 +1,6 @@
 {
   "name": "dsh-subscribe",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Steam-style plugin marketplace for DeepSeek Harness: subscribe on the web, sync with one command. 500+ community plugins, verified curation, zero-dependency CLI.",
   "type": "module",
   "bin": {
