@@ -14400,13 +14400,13 @@
       "name": "dsh-shelf",
       "author": "zoahdev",
       "category": "session",
-      "description": "Session lifecycle for DSH: web panel + DSH plugin + CLI (export md/json/jsonl + zstd, archive/trash/search/stats/report), CJK bigram Chinese search. Zero dependencies, read-only by default.",
-      "description_zh": "DSH 会话生命周期：Web 面板 + DSH 插件 + CLI（导出 md/json/jsonl + zstd、归档/回收站/搜索/统计/周报），中文 bigram 搜索。零依赖、默认只读。",
+      "description": "Session lifecycle for DSH: web panel with daily chart + offline HTML dashboard + DSH plugin + CLI (export md/json/jsonl + zstd, archive/trash/search/stats/report), CJK bigram Chinese search. Zero dependencies, read-only by default.",
+      "description_zh": "DSH 会话生命周期：Web 面板（每日图表）+ 离线 HTML 看板 + DSH 插件 + CLI（导出 md/json/jsonl + zstd、归档/回收站/搜索/统计/周报），中文 bigram 搜索。零依赖、默认只读。",
       "install": {
         "target": "npm",
         "spec": "dsh-shelf"
       },
-      "version": "0.4.0",
+      "version": "0.5.0",
       "homepage": "https://github.com/zoahdev/dsh-shelf",
       "verified": true,
       "tags": [
