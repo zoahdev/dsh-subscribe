@@ -41,7 +41,7 @@ jobs:
       - name: Pack
         run: pnpm pack
       - name: Packaged runtime smoke (real tool invocation)
-        run: node scripts/runtime-smoke.mjs ./dsh-subscribe-0.3.0.tgz
+        run: node scripts/runtime-smoke.mjs ./dsh-subscribe-0.3.1.tgz
 
   dsh-smoke:
     runs-on: windows-latest
@@ -62,4 +62,4 @@ jobs:
       - name: Pack
         run: pnpm pack
       - name: Fresh DSH profile install + boot smoke
-        run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/dsh-smoke.ps1 -Tgz .\dsh-subscribe-0.3.0.tgz
+        run: pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/dsh-smoke.ps1 -Tgz .\dsh-subscribe-0.3.1.tgz
