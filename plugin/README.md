@@ -18,7 +18,7 @@ Or from a local build:
 cd plugin
 pnpm install
 pnpm pack
-dsh plugin --profile web add ./dsh-subscribe-0.3.0.tgz
+dsh plugin --profile web add ./dsh-subscribe-0.3.1.tgz
 ```
 
 Restart `dsh web` (or the profile serving your UI). The three tools then
