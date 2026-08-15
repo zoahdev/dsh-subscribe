@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-08-15",
-  "count": 548,
+  "count": 551,
   "verifiedCount": 20,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
@@ -14246,6 +14246,78 @@
       "source": {
         "name": "dsh-subscribe",
         "url": "https://github.com/alib8b8/aflare"
+      }
+    },
+    {
+      "id": "deepseek-harness-action",
+      "name": "deepseek-harness-action",
+      "author": "Lixiaoyiao",
+      "category": "workflow",
+      "description": "GitHub Action: run DeepSeek Harness for PR/Issue/CI workflows.",
+      "description_zh": "GitHub Action：在 PR/Issue/CI 工作流里运行 DeepSeek Harness。",
+      "install": {
+        "target": "git",
+        "spec": "github:Lixiaoyiao/deepseek-harness-action"
+      },
+      "version": "0.2.0",
+      "homepage": "https://github.com/Lixiaoyiao/deepseek-harness-action",
+      "verified": false,
+      "tags": [
+        "workflow",
+        "actions"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/Lixiaoyiao/deepseek-harness-action"
+      }
+    },
+    {
+      "id": "dsh-mcp",
+      "name": "dsh-mcp",
+      "author": "ArvinQi",
+      "category": "tools",
+      "description": "MCP management UI + tool search for DeepSeek Harness: stable tool list, hit cache, context-safe.",
+      "description_zh": "DeepSeek Harness 的 MCP 管理界面 + 工具搜索：工具列表稳定、命中缓存、不撑爆上下文。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-mcp"
+      },
+      "version": "1.1.0",
+      "homepage": "https://github.com/ArvinQi/dsh-mcp",
+      "verified": false,
+      "tags": [
+        "mcp",
+        "tools"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/ArvinQi/dsh-mcp"
+      }
+    },
+    {
+      "id": "dsh-deepseek-vision",
+      "name": "dsh-deepseek-vision",
+      "author": "siegfly",
+      "category": "tools",
+      "description": "Paste images in chat; pure-text DeepSeek can see them without changing models.",
+      "description_zh": "聊天窗口贴图，纯文本 DeepSeek 也能看图，无需换模型。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-deepseek-vision"
+      },
+      "version": "0.1.3",
+      "homepage": "https://github.com/siegfly/dsh-deepseek-vision",
+      "verified": false,
+      "tags": [
+        "vision",
+        "tools"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/siegfly/dsh-deepseek-vision"
       }
     }
   ]
