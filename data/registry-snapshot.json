@@ -3,7 +3,7 @@
   "url": "https://awesome-dsh-plugin.com",
   "source": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
   "updated": "2026-08-15",
-  "count": 562,
+  "count": 563,
   "categories": {
     "ui": {
       "en": "UI Enhancements",
@@ -8483,6 +8483,21 @@
       "npm": "dsh-deepseek-vision",
       "stars": 0,
       "install": "dsh plugin --profile web add dsh-deepseek-vision",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-pet-evolve",
+      "owner": "zoahdev",
+      "url": "https://github.com/zoahdev/dsh-pet-evolve",
+      "page": null,
+      "category": "fun",
+      "description": {
+        "en": "The pet that grows with your agent: 5 evolution stages from real signals (verified rules, sessions, tool calls, compactions), agent-state mirroring, one-click growth share card PNG. Zero dependencies, 100% local.",
+        "zh": "会随 agent 成长的宠物：真实信号（已验证规则/会话/工具调用/压缩）驱动 5 阶段进化，镜像 agent 状态，一键导出成长分享卡 PNG。零依赖、全本地。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:zoahdev/dsh-pet-evolve",
       "added": "2026-08-15"
     }
   ]
