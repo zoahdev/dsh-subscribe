@@ -1,5 +1,5 @@
 param(
-  [string]$Tgz = "dsh-subscribe-0.2.0.tgz"
+  [string]$Tgz = "dsh-subscribe-0.3.0.tgz"
 )
 
 $ErrorActionPreference = 'Stop'
@@ -44,6 +44,31 @@ try {
   }
 
   Write-Output 'PASS dsh web booted with the plugin loaded (HTTP 200)'
+
+  Write-Output '== in-harness market API: registry route =='
+  $reg = Invoke-RestMethod -Uri 'http://127.0.0.1:4099/dsh-subscribe/registry' -TimeoutSec 15
+  if ($reg.count -lt 500) { throw "registry route returned too few plugins: $($reg.count)" }
+  Write-Output "PASS registry route: $($reg.count) plugins, $($reg.verified) verified"
+
+  Write-Output '== in-harness market API: UI page =='
+  $ui = Invoke-WebRequest -Uri 'http://127.0.0.1:4099/dsh-subscribe/' -TimeoutSec 15 -UseBasicParsing
+  if ($ui.Content -notmatch 'dsh-subscribe') { throw 'market UI page missing dsh-subscribe' }
+  Write-Output 'PASS market UI page served'
+
+  Write-Output '== in-harness market API: one-click install (real dsh CLI) =='
+  $spec = 'file:' + $tgz.Replace('\', '/')
+  $body = @{ spec = $spec } | ConvertTo-Json
+  $install = Invoke-RestMethod -Uri 'http://127.0.0.1:4099/dsh-subscribe/install' -Method Post -Headers @{ Origin = 'http://127.0.0.1:4099' } -ContentType 'application/json' -Body $body -TimeoutSec 300
+  if (-not $install.ok) {
+    Write-Output $install
+    throw 'one-click install route did not report ok'
+  }
+  Write-Output "PASS one-click install executed: exit=$($install.exitCode) added=$($install.added -join ',')"
+
+  Write-Output '== in-harness market API: installed list contains dsh-subscribe =='
+  $inst = Invoke-RestMethod -Uri 'http://127.0.0.1:4099/dsh-subscribe/installed' -TimeoutSec 15
+  if (-not ($inst.installed.PSObject.Properties.Name -contains 'dsh-subscribe')) { throw 'installed list missing dsh-subscribe' }
+  Write-Output 'PASS installed list verified'
 } finally {
   if ($p -and -not $p.HasExited) {
     Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue
