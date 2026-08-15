@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-08-15",
-  "count": 536,
+  "count": 539,
   "verifiedCount": 20,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
@@ -60,8 +60,8 @@
       "name": "dsh-subscribe",
       "author": "zoahdev",
       "category": "market",
-      "description": "Steam-style plugin marketplace: 535-plugin registry, one-command sync, in-harness market tools.",
-      "description_zh": "Steam 式插件市场：535+ 插件注册表、一条命令同步、对话内市场工具。",
+      "description": "Steam-style plugin marketplace: 539-plugin registry, one-command sync, in-harness market tools.",
+      "description_zh": "Steam 式插件市场：539+ 插件注册表、一条命令同步、对话内市场工具。",
       "install": {
         "target": "git",
         "spec": "github:zoahdev/dsh-subscribe#path:/plugin"
@@ -13957,6 +13957,79 @@
         "url": "https://awesome-dsh-plugin.com",
         "page": "https://awesome-dsh-plugin.com/p/skr311/dsh-codex-pet--packages-dsh-codex-pet/",
         "added": "2026-08-15"
+      }
+    },
+    {
+      "id": "managed-agents",
+      "name": "SandBase Harness",
+      "author": "sandbaseai",
+      "category": "workflow",
+      "description": "Durable agent sessions over stdio MCP: list/create/run/get/stop persistent agents and read artifacts (6 tools).",
+      "description_zh": "基于 stdio MCP 的持久化 Agent 会话：列出/创建/运行/获取/停止 Agent、读取产物（6 个工具）。",
+      "install": {
+        "target": "git",
+        "spec": "github:sandbaseai/sandbase-harness"
+      },
+      "version": "0.3.2",
+      "homepage": "https://github.com/sandbaseai/sandbase-harness",
+      "verified": false,
+      "tags": [
+        "workflow",
+        "mcp",
+        "agents"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/sandbaseai/sandbase-harness"
+      }
+    },
+    {
+      "id": "dsh-1024store",
+      "name": "DSH 1024Store",
+      "author": "imsai-sh",
+      "category": "market",
+      "description": "Community plugin catalog + settings-page marketplace: discovery, manifest checks, confirmed install/uninstall through the official dsh plugin flow.",
+      "description_zh": "社区插件目录 + 设置页内市场：发现、清单校验、经官方 dsh plugin 流程确认安装/卸载。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-1024store"
+      },
+      "version": "0.2.0",
+      "homepage": "https://deepseek1024.com/",
+      "verified": false,
+      "tags": [
+        "market",
+        "catalog"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/imsai-sh/awesome-deepseek-harness-plugins"
+      }
+    },
+    {
+      "id": "dsh-web-shell",
+      "name": "dsh-web-shell",
+      "author": "JesmonX",
+      "category": "ui",
+      "description": "Right-docked web terminal for the Web UI: xterm.js in the browser over a host-side PTY (bash/zsh), fold-vs-close separation, resizable.",
+      "description_zh": "Web UI 右侧停靠网页终端：浏览器 xterm.js + 主机 PTY（bash/zsh），折叠与关闭分离、可拖拽调宽。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-web-shell"
+      },
+      "version": "0.1.0",
+      "homepage": "https://github.com/JesmonX/dsh-web-shell",
+      "verified": false,
+      "tags": [
+        "ui",
+        "terminal"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/JesmonX/dsh-web-shell"
       }
     }
   ]
