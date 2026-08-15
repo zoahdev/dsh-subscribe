@@ -1,8 +1,8 @@
 {
   "version": 2,
   "updated": "2026-08-15",
-  "count": 535,
-  "verifiedCount": 19,
+  "count": 536,
+  "verifiedCount": 20,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
     "ui": {
@@ -55,6 +55,31 @@
     }
   },
   "plugins": [
+    {
+      "id": "dsh-subscribe",
+      "name": "dsh-subscribe",
+      "author": "zoahdev",
+      "category": "market",
+      "description": "Steam-style plugin marketplace: 535-plugin registry, one-command sync, in-harness market tools.",
+      "description_zh": "Steam 式插件市场：535+ 插件注册表、一条命令同步、对话内市场工具。",
+      "install": {
+        "target": "git",
+        "spec": "github:zoahdev/dsh-subscribe#path:/plugin"
+      },
+      "version": "0.2.0",
+      "homepage": "https://github.com/zoahdev/dsh-subscribe",
+      "verified": true,
+      "tags": [
+        "market",
+        "subscribe",
+        "marketplace"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "zoahdev",
+        "url": "https://github.com/zoahdev/dsh-subscribe"
+      }
+    },
     {
       "id": "dsh-github-intelligence",
       "name": "GitHub Intelligence",
