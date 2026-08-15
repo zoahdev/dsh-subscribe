@@ -296,6 +296,16 @@ function readUiHtml() {
 }
 
 /**
+ * Guard against duplicate route sets when a preset/composition remounts the
+ * plugin in the same process. Upstream has a class of bugs where a stale
+ * standing generation is not disposed on composition change, which would
+ * register webServer routes twice and break remount (deepseek-harness
+ * discussion #1862). We defensively dispose the previous set before mounting
+ * a new one, keyed by profile.
+ */
+const activeMounts = new Map()
+
+/**
  * Mount every market route on the host webServer.
  * @param host - host context exposing webServer.register.
  * @param config - { profile, runner? } — runner is injectable for tests.
@@ -303,6 +313,11 @@ function readUiHtml() {
  */
 export function mountMarketRoutes(host, config) {
   const profile = PROFILE_RE.test(config.profile) ? config.profile : 'web'
+  const previousDisposer = activeMounts.get(profile)
+  if (previousDisposer !== undefined) {
+    logEvent('warn', 'mount', `replacing existing route set for profile ${profile} (idempotent remount)`)
+    try { previousDisposer() } catch { /* best-effort */ }
+  }
   const run = config.runner ?? ((p, args) => runPlugin(p, args))
   const uiHtml = readUiHtml()
   let installing = false
@@ -563,7 +578,10 @@ export function mountMarketRoutes(host, config) {
     }),
   ]
 
-  return () => {
+  const disposer = () => {
     for (const dispose of disposers) dispose()
+    if (activeMounts.get(profile) === disposer) activeMounts.delete(profile)
   }
+  activeMounts.set(profile, disposer)
+  return disposer
 }
