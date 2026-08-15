@@ -4,6 +4,10 @@ on:
   push:
     tags: ['v*']
 
+concurrency:
+  group: npm-publish-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -22,6 +26,11 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: node --test test/plugin.test.mjs test/market-server.test.mjs
       - run: pnpm pack
+      - name: Require NPM_TOKEN
+        if: ${{ secrets.NPM_TOKEN == '' }}
+        run: |
+          echo "::error::NPM_TOKEN secret is not set. Add it in Settings → Secrets and variables → Actions → New repository secret (value: an npmjs.com access token), then re-run this workflow or re-tag."
+          exit 1
       - name: Publish to npm
         run: npm publish --access public
         env:
