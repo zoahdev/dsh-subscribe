@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-08-16",
-  "count": 564,
+  "count": 566,
   "verifiedCount": 20,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
@@ -14636,6 +14636,53 @@
       "source": {
         "name": "dsh-subscribe",
         "url": "https://github.com/tluoluo/dsh-persist"
+      }
+    },
+    {
+      "id": "dsh-agent-memory",
+      "name": "dsh-agent-memory",
+      "author": "findshan",
+      "category": "memory",
+      "description": "Self-evolving memory with a dream pass, user profile, and provenance from the replayable session log.",
+      "description_zh": "自进化记忆：dream 通道 + 用户画像 + 可回放会话日志的溯源。",
+      "install": {
+        "target": "git",
+        "spec": "github:findshan/dsh-agent-memory"
+      },
+      "version": null,
+      "homepage": "https://github.com/findshan/dsh-agent-memory",
+      "verified": false,
+      "tags": [
+        "memory",
+        "self-evolution"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/findshan/dsh-agent-memory"
+      }
+    },
+    {
+      "id": "dsh-opencode-palette",
+      "name": "dsh-opencode-palette",
+      "author": "FeatherHunter",
+      "category": "theme",
+      "description": "34 official opencode color themes, one-click switch.",
+      "description_zh": "34 款 opencode 官方配色主题，一键切换。",
+      "install": {
+        "target": "git",
+        "spec": "github:FeatherHunter/dsh-opencode-palette"
+      },
+      "version": null,
+      "homepage": "https://github.com/FeatherHunter/dsh-opencode-palette",
+      "verified": false,
+      "tags": [
+        "theme"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/FeatherHunter/dsh-opencode-palette"
       }
     }
   ]
