@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-08-16",
-  "count": 567,
+  "count": 568,
   "verifiedCount": 20,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
@@ -14708,6 +14708,31 @@
       "source": {
         "name": "dsh-subscribe",
         "url": "https://github.com/jasonrale/dsh-archive-manager"
+      }
+    },
+    {
+      "id": "dsh-tui",
+      "name": "@tomowang/dsh-tui",
+      "author": "tomowang",
+      "category": "ui",
+      "description": "Terminal TUI frontend for DeepSeek Harness: drive the agent from a terminal instead of the browser.",
+      "description_zh": "DeepSeek Harness 的终端 TUI 前端：用终端代替浏览器驱动 agent。",
+      "install": {
+        "target": "npm",
+        "spec": "@tomowang/dsh-tui"
+      },
+      "version": null,
+      "homepage": "https://github.com/tomowang/dsh-tui",
+      "verified": false,
+      "tags": [
+        "tui",
+        "terminal",
+        "frontend"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/tomowang/dsh-tui"
       }
     }
   ]
