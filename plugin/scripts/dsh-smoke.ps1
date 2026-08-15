@@ -1,5 +1,5 @@
 param(
-  [string]$Tgz = "dsh-subscribe-0.3.0.tgz"
+  [string]$Tgz = "dsh-subscribe-0.3.1.tgz"
 )
 
 $ErrorActionPreference = 'Stop'
