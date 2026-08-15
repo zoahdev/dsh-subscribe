@@ -1,0 +1,4 @@
+# dsh bundle patch: inserts the market tools into a profile's layer stack.
+- insert:
+    - id: dsh-subscribe
+      name: dsh-subscribe
