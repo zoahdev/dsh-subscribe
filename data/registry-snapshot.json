@@ -3,7 +3,7 @@
   "url": "https://awesome-dsh-plugin.com",
   "source": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
   "updated": "2026-08-15",
-  "count": 550,
+  "count": 559,
   "categories": {
     "ui": {
       "en": "UI Enhancements",
@@ -8303,6 +8303,141 @@
       "npm": "dsh-web-shell",
       "stars": 0,
       "install": "dsh plugin --profile web add dsh-web-shell",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-minimal-msys2",
+      "owner": "AythyaCrispus",
+      "url": "https://github.com/AythyaCrispus/dsh-minimal-msys2",
+      "page": null,
+      "category": "tools",
+      "description": {
+        "en": "Use git bash / msys2 bash as the terminal on Windows.",
+        "zh": "Windows 下使用 git bash / msys2 bash 作为终端。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:AythyaCrispus/dsh-minimal-msys2",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-codex-collab",
+      "owner": "zfu691531-hash",
+      "url": "https://github.com/zfu691531-hash/dsh-codex-collab",
+      "page": null,
+      "category": "workflow",
+      "description": {
+        "en": "Bidirectional DeepSeek Harness <-> Codex collaboration on macOS and Windows.",
+        "zh": "DeepSeek Harness 与 Codex 双向协作（macOS / Windows）。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:zfu691531-hash/dsh-codex-collab",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-codex-migrate",
+      "owner": "polarskicpl",
+      "url": "https://github.com/polarskicpl/dsh-codex-migrate",
+      "page": null,
+      "category": "workflow",
+      "description": {
+        "en": "Migrate Codex CLI conversations / MCP / memory into DeepSeek Harness in one command.",
+        "zh": "把 Codex CLI 的对话 / MCP / 记忆一键迁入 DeepSeek Harness。"
+      },
+      "npm": "dsh-codex-migrate",
+      "stars": 0,
+      "install": "dsh plugin --profile web add dsh-codex-migrate",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-turn-rail",
+      "owner": "Yujm888",
+      "url": "https://github.com/Yujm888/dsh-turn-rail",
+      "page": null,
+      "category": "ui",
+      "description": {
+        "en": "Codex-style auto-hiding turn navigation rail.",
+        "zh": "Codex 风格自动隐藏轮次导航栏。"
+      },
+      "npm": "dsh-turn-rail",
+      "stars": 0,
+      "install": "dsh plugin --profile web add dsh-turn-rail",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-usage-lens",
+      "owner": "yokesky",
+      "url": "https://github.com/yokesky/dsh-usage-lens",
+      "page": null,
+      "category": "ui",
+      "description": {
+        "en": "Local usage-statistics dashboard for the DSH Web UI.",
+        "zh": "DSH Web UI 本地用量统计看板。"
+      },
+      "npm": "@yokesky/dsh-usage-lens",
+      "stars": 0,
+      "install": "dsh plugin --profile web add @yokesky/dsh-usage-lens",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "trajectory-reader",
+      "owner": "flyingtimes",
+      "url": "https://github.com/flyingtimes/dsh-trajectory-reader",
+      "page": null,
+      "category": "ui",
+      "description": {
+        "en": "DSH web plugin that interprets each round of the trajectory.",
+        "zh": "DSH Web 插件：逐轮解读轨迹。"
+      },
+      "npm": "@clarkchan/trajectory-reader",
+      "stars": 0,
+      "install": "dsh plugin --profile web add @clarkchan/trajectory-reader",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-mcp-mgr",
+      "owner": "yangfch3",
+      "url": "https://github.com/yangfch3/dsh-mcp-mgr",
+      "page": null,
+      "category": "tools",
+      "description": {
+        "en": "Workspace-level MCP manager for dsh.",
+        "zh": "dsh 的工作区级 MCP 管理器。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:yangfch3/dsh-mcp-mgr",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-sidebar-files",
+      "owner": "Fallen0543",
+      "url": "https://github.com/Fallen0543/dsh-sidebar-files",
+      "page": null,
+      "category": "ui",
+      "description": {
+        "en": "VS Code-like resource-manager file tree in the DSH sidebar.",
+        "zh": "DSH 侧边栏类 VS Code 资源管理器文件树。"
+      },
+      "npm": "dsh-sidebar-files",
+      "stars": 0,
+      "install": "dsh plugin --profile web add dsh-sidebar-files",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-plugin-aflare",
+      "owner": "alib8b8",
+      "url": "https://github.com/alib8b8/aflare",
+      "page": null,
+      "category": "workflow",
+      "description": {
+        "en": "Deterministic workflow tools for DSH agents.",
+        "zh": "面向 DSH agent 的确定性工作流工具。"
+      },
+      "npm": "@alib8b8/dsh-plugin-aflare",
+      "stars": 0,
+      "install": "dsh plugin --profile web add @alib8b8/dsh-plugin-aflare",
       "added": "2026-08-15"
     }
   ]
