@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-08-15",
-  "count": 552,
+  "count": 554,
   "verifiedCount": 20,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
@@ -14343,6 +14343,56 @@
       "source": {
         "name": "dsh-subscribe",
         "url": "https://github.com/zoahdev/dsh-pet-evolve"
+      }
+    },
+    {
+      "id": "dsh-compass",
+      "name": "dsh-compass",
+      "author": "Happy2Git",
+      "category": "ui",
+      "description": "Right-side context file panel for dsh web: files + git tabs beside the conversation.",
+      "description_zh": "dsh web 右侧上下文文件面板：会话旁的文件 + Git 标签页。",
+      "install": {
+        "target": "git",
+        "spec": "github:Happy2Git/dsh-compass"
+      },
+      "version": null,
+      "homepage": "https://github.com/Happy2Git/dsh-compass",
+      "verified": false,
+      "tags": [
+        "ui",
+        "files",
+        "git"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/Happy2Git/dsh-compass"
+      }
+    },
+    {
+      "id": "dsh-wildmon",
+      "name": "dsh-wildmon",
+      "author": "swaylq",
+      "category": "fun",
+      "description": "Pokemon-style capture and collection from your real work, zero token cost.",
+      "description_zh": "宝可梦式捕捉收集：你的真实工作就是草丛，零 token 消耗。",
+      "install": {
+        "target": "git",
+        "spec": "github:swaylq/dsh-wildmon"
+      },
+      "version": null,
+      "homepage": "https://github.com/swaylq/dsh-wildmon",
+      "verified": false,
+      "tags": [
+        "fun",
+        "game",
+        "collection"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/swaylq/dsh-wildmon"
       }
     }
   ]
