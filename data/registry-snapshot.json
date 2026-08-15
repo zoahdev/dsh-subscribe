@@ -3,7 +3,7 @@
   "url": "https://awesome-dsh-plugin.com",
   "source": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
   "updated": "2026-08-16",
-  "count": 574,
+  "count": 575,
   "categories": {
     "ui": {
       "en": "UI Enhancements",
@@ -8663,6 +8663,21 @@
       "npm": null,
       "stars": 0,
       "install": "dsh plugin --profile web add github:MrWeiCodes/dsh-permgate",
+      "added": "2026-08-16"
+    },
+    {
+      "name": "dsh-persist",
+      "owner": "tluoluo",
+      "url": "https://github.com/tluoluo/dsh-persist",
+      "page": null,
+      "category": "memory",
+      "description": {
+        "en": "Memory layering + semantic retrieval + auto-recall so DSH agents no longer forget across sessions.",
+        "zh": "记忆分层 + 语义检索 + 自动召回，DSH agent 不再换对话就失忆。"
+      },
+      "npm": "dsh-persist",
+      "stars": 0,
+      "install": "dsh plugin --profile web add dsh-persist",
       "added": "2026-08-16"
     }
   ]
