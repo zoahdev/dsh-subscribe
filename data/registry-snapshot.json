@@ -3,7 +3,7 @@
   "url": "https://awesome-dsh-plugin.com",
   "source": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
   "updated": "2026-08-16",
-  "count": 575,
+  "count": 577,
   "categories": {
     "ui": {
       "en": "UI Enhancements",
@@ -8678,6 +8678,36 @@
       "npm": "dsh-persist",
       "stars": 0,
       "install": "dsh plugin --profile web add dsh-persist",
+      "added": "2026-08-16"
+    },
+    {
+      "name": "dsh-agent-memory",
+      "owner": "findshan",
+      "url": "https://github.com/findshan/dsh-agent-memory",
+      "page": null,
+      "category": "memory",
+      "description": {
+        "en": "Self-evolving memory with a dream pass, user profile, and provenance from the replayable session log.",
+        "zh": "自进化记忆：dream 通道 + 用户画像 + 可回放会话日志的溯源。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:findshan/dsh-agent-memory",
+      "added": "2026-08-16"
+    },
+    {
+      "name": "dsh-opencode-palette",
+      "owner": "FeatherHunter",
+      "url": "https://github.com/FeatherHunter/dsh-opencode-palette",
+      "page": null,
+      "category": "theme",
+      "description": {
+        "en": "34 official opencode color themes, one-click switch.",
+        "zh": "34 款 opencode 官方配色主题，一键切换。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:FeatherHunter/dsh-opencode-palette",
       "added": "2026-08-16"
     }
   ]
