@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-08-16",
-  "count": 561,
+  "count": 563,
   "verifiedCount": 20,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
@@ -14564,6 +14564,54 @@
       "source": {
         "name": "dsh-subscribe",
         "url": "https://github.com/hjqcan/dsh-goodmemory"
+      }
+    },
+    {
+      "id": "dshelm",
+      "name": "DSHelm",
+      "author": "Altairpaca",
+      "category": "workflow",
+      "description": "OmO-inspired batteries-included agent distribution for DeepSeek Harness.",
+      "description_zh": "OmO 风格、开箱即用的 DeepSeek Harness agent 发行版。",
+      "install": {
+        "target": "git",
+        "spec": "github:Altairpaca/dshelm"
+      },
+      "version": null,
+      "homepage": "https://github.com/Altairpaca/dshelm",
+      "verified": false,
+      "tags": [
+        "distribution",
+        "workflow"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/Altairpaca/dshelm"
+      }
+    },
+    {
+      "id": "dsh-permgate",
+      "name": "dsh-permgate",
+      "author": "MrWeiCodes",
+      "category": "tools",
+      "description": "Fine-grained permission control for DeepSeek Harness.",
+      "description_zh": "DeepSeek Harness 细粒度权限控制。",
+      "install": {
+        "target": "git",
+        "spec": "github:MrWeiCodes/dsh-permgate"
+      },
+      "version": null,
+      "homepage": "https://github.com/MrWeiCodes/dsh-permgate",
+      "verified": false,
+      "tags": [
+        "permissions",
+        "security"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/MrWeiCodes/dsh-permgate"
       }
     }
   ]
