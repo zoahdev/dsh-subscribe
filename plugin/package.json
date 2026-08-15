@@ -1,6 +1,6 @@
 {
   "name": "dsh-subscribe",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Agent-native plugin marketplace for DeepSeek Harness: search 500+ community plugins, market stats, and install commands — right from the chat.",
   "type": "module",
   "main": "lib/index.js",
@@ -15,7 +15,7 @@
     "README.md"
   ],
   "scripts": {
-    "test": "node --test test/plugin.test.mjs",
+    "test": "node --test test/plugin.test.mjs test/market-server.test.mjs",
     "pack": "pnpm pack"
   },
   "peerDependencies": {
