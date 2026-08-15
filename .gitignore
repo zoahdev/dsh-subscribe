@@ -1,3 +1,5 @@
 node_modules/
 subscriptions.json
 .DS_Store
+*.tgz
+plugin/node_modules/
