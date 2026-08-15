@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-08-15",
-  "count": 551,
+  "count": 552,
   "verifiedCount": 20,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
@@ -14318,6 +14318,31 @@
       "source": {
         "name": "dsh-subscribe",
         "url": "https://github.com/siegfly/dsh-deepseek-vision"
+      }
+    },
+    {
+      "id": "dsh-pet-evolve",
+      "name": "dsh-pet-evolve",
+      "author": "zoahdev",
+      "category": "fun",
+      "description": "The pet that grows with your agent: 5 evolution stages from real signals (verified rules, sessions, tool calls, compactions), agent-state mirroring, one-click growth share card PNG. Zero dependencies, 100% local.",
+      "description_zh": "会随 agent 成长的宠物：真实信号（已验证规则/会话/工具调用/压缩）驱动 5 阶段进化，镜像 agent 状态，一键导出成长分享卡 PNG。零依赖、全本地。",
+      "install": {
+        "target": "git",
+        "spec": "github:zoahdev/dsh-pet-evolve"
+      },
+      "version": "0.1.0",
+      "homepage": "https://github.com/zoahdev/dsh-pet-evolve",
+      "verified": true,
+      "tags": [
+        "fun",
+        "pet",
+        "evolution"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/zoahdev/dsh-pet-evolve"
       }
     }
   ]
