@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-08-16",
-  "count": 568,
+  "count": 569,
   "verifiedCount": 20,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
@@ -14733,6 +14733,31 @@
       "source": {
         "name": "dsh-subscribe",
         "url": "https://github.com/tomowang/dsh-tui"
+      }
+    },
+    {
+      "id": "dsh-all-warmup",
+      "name": "dsh-all-warmup",
+      "author": "brunhildzhou",
+      "category": "optimization",
+      "description": "Global frictionless warm-up layer: first request narrows to minimal tools with one injected warmup reply; full mode restored from round 2.",
+      "description_zh": "全局无感热身层：首轮请求收窄到极简工具并注入一次热身回复，第二轮起恢复完整模式。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-all-warmup"
+      },
+      "version": null,
+      "homepage": "https://github.com/brunhildzhou/dsh-all-warmup",
+      "verified": false,
+      "tags": [
+        "warmup",
+        "performance",
+        "agent"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/brunhildzhou/dsh-all-warmup"
       }
     }
   ]
