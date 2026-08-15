@@ -13,6 +13,7 @@
 
 import { readFileSync } from 'node:fs'
 import { defineTool } from '@deepseek-ai/dsh-tools'
+import { mountMarketRoutes } from './market-server.js'
 
 export const name = 'dsh-subscribe'
 
@@ -20,6 +21,14 @@ export const name = 'dsh-subscribe'
 export const inject = ['tools']
 
 export const REGISTRY_URL = 'https://raw.githubusercontent.com/zoahdev/dsh-subscribe/main/registry.json'
+
+/** The profile this host process actually booted, if the CLI passed it. */
+function argvProfile() {
+  const argv = process.argv
+  const flag = argv.indexOf('--profile')
+  if (flag !== -1 && flag + 1 < argv.length && !argv[flag + 1].startsWith('-')) return argv[flag + 1]
+  return undefined
+}
 
 /** Load the compact snapshot bundled inside the installed package. */
 export function loadEmbeddedRegistry() {
@@ -222,9 +231,22 @@ function createTools() {
   ]
 }
 
-/** Register all market tools on the host context. */
-export function apply(ctx) {
+/**
+ * Register all market tools, plus the in-harness storefront HTTP routes when
+ * the host exposes a webServer (web profiles). Headless profiles still get
+ * the tools.
+ */
+export function apply(ctx, config = {}) {
   for (const tool of createTools()) {
     ctx.tools.register(tool)
+  }
+  const profile = config.profile ?? argvProfile() ?? 'web'
+  const routeConfig = { profile, loadRegistry, runner: config.runner }
+  try {
+    ctx.inject(['webServer'], (host) => {
+      mountMarketRoutes(host, routeConfig)
+    })
+  } catch {
+    // Headless profile without a webServer: the agent tools keep working.
   }
 }
