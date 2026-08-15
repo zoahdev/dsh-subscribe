@@ -3,7 +3,7 @@
   "url": "https://awesome-dsh-plugin.com",
   "source": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
   "updated": "2026-08-16",
-  "count": 579,
+  "count": 580,
   "categories": {
     "ui": {
       "en": "UI Enhancements",
@@ -8738,6 +8738,21 @@
       "npm": "@tomowang/dsh-tui",
       "stars": 0,
       "install": "dsh plugin --profile tui add @tomowang/dsh-tui",
+      "added": "2026-08-16"
+    },
+    {
+      "name": "dsh-all-warmup",
+      "owner": "brunhildzhou",
+      "url": "https://github.com/brunhildzhou/dsh-all-warmup",
+      "page": null,
+      "category": "optimization",
+      "description": {
+        "en": "Global frictionless warm-up layer: first request narrows to minimal tools with one injected warmup reply; full mode restored from round 2.",
+        "zh": "全局无感热身层：首轮请求收窄到极简工具并注入一次热身回复，第二轮起恢复完整模式。"
+      },
+      "npm": "dsh-all-warmup",
+      "stars": 0,
+      "install": "dsh plugin --profile web add dsh-all-warmup",
       "added": "2026-08-16"
     }
   ]
