@@ -80,8 +80,31 @@ registers three tools:
 | `market_install_command` | Returns the exact `dsh plugin add` commands for the user to run |
 
 The plugin ships a bundled registry snapshot, so it keeps working offline.
+The plugin also mounts a **full in-harness storefront** at
+`http://localhost:<dsh-web-port>/dsh-subscribe/` — browse/search the registry,
+then install, uninstall, update, and approve build scripts with one click,
+right from the browser. Every button drives the real dsh CLI on your machine;
+mutating requests require a same-origin POST and installs are restricted to
+curated registry specs (or explicit `file:`/`link:` specs).
+
+HTTP API (same-origin):
+
+| Route | Method | Purpose |
+| --- | --- | --- |
+| `/dsh-subscribe/registry` | GET | registry + stats |
+| `/dsh-subscribe/installed` | GET | installed plugins |
+| `/dsh-subscribe/status` | GET | live install progress |
+| `/dsh-subscribe/updates` | GET | update availability |
+| `/dsh-subscribe/logs` | GET | sanitized plain-text log export |
+| `/dsh-subscribe/install` | POST | one-click install (curated or file:/link:) |
+| `/dsh-subscribe/uninstall` | POST | one-click uninstall |
+| `/dsh-subscribe/update` | POST | one-click update |
+| `/dsh-subscribe/approve-builds` | POST | allow build scripts for installed packages |
+| `/dsh-subscribe/cancel` | POST | cancel the running operation |
+| `/dsh-subscribe/` | GET | in-harness storefront UI |
+
 Build it locally with `cd plugin && pnpm install && pnpm pack`, then
-`dsh plugin --profile web add ./dsh-subscribe-0.2.0.tgz`.
+`dsh plugin --profile web add ./dsh-subscribe-0.3.0.tgz`.
 
 ## Registry and the "verified" flag
 
