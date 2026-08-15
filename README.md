@@ -2,6 +2,10 @@
 
 English | [中文](#中文)
 
+[![CI](https://github.com/zoahdev/dsh-subscribe/actions/workflows/ci.yml/badge.svg)](https://github.com/zoahdev/dsh-subscribe/actions)
+[![Release](https://img.shields.io/github/v/release/zoahdev/dsh-subscribe)](https://github.com/zoahdev/dsh-subscribe/releases)
+[![Storefront](https://img.shields.io/website?label=storefront&url=https%3A%2F%2Fzoahdev.github.io%2Fdsh-subscribe%2F)](https://zoahdev.github.io/dsh-subscribe/)
+
 **Steam-style plugin marketplace for DeepSeek Harness.** Browse **536+
 community plugins** on the web storefront, subscribe to the ones you want,
 then run **one command** to install everything into your dsh profile. A
