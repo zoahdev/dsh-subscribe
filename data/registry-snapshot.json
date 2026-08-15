@@ -3,7 +3,7 @@
   "url": "https://awesome-dsh-plugin.com",
   "source": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
   "updated": "2026-08-16",
-  "count": 578,
+  "count": 579,
   "categories": {
     "ui": {
       "en": "UI Enhancements",
@@ -8723,6 +8723,21 @@
       "npm": null,
       "stars": 0,
       "install": "dsh plugin --profile web add github:jasonrale/dsh-archive-manager",
+      "added": "2026-08-16"
+    },
+    {
+      "name": "dsh-tui",
+      "owner": "tomowang",
+      "url": "https://github.com/tomowang/dsh-tui",
+      "page": null,
+      "category": "ui",
+      "description": {
+        "en": "Terminal TUI frontend for DeepSeek Harness: drive the agent from a terminal instead of the browser.",
+        "zh": "DeepSeek Harness 的终端 TUI 前端：用终端代替浏览器驱动 agent。"
+      },
+      "npm": "@tomowang/dsh-tui",
+      "stars": 0,
+      "install": "dsh plugin --profile tui add @tomowang/dsh-tui",
       "added": "2026-08-16"
     }
   ]
