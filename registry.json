@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-08-15",
-  "count": 554,
+  "count": 555,
   "verifiedCount": 20,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
@@ -14393,6 +14393,32 @@
       "source": {
         "name": "dsh-subscribe",
         "url": "https://github.com/swaylq/dsh-wildmon"
+      }
+    },
+    {
+      "id": "dsh-shelf",
+      "name": "dsh-shelf",
+      "author": "zoahdev",
+      "category": "session",
+      "description": "Session lifecycle for DSH: export (md/json/jsonl), archive/restore, trash, search, and stats. Zero dependencies, read-only by default, nothing ever deleted without an explicit move.",
+      "description_zh": "DSH 会话生命周期管理：导出（md/json/jsonl）、归档/恢复、回收站、搜索、统计。零依赖、默认只读，引擎从不删除任何东西。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-shelf"
+      },
+      "version": "0.1.0",
+      "homepage": "https://github.com/zoahdev/dsh-shelf",
+      "verified": true,
+      "tags": [
+        "session",
+        "archive",
+        "export",
+        "search"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/zoahdev/dsh-shelf"
       }
     }
   ]
