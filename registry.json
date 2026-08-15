@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-08-16",
-  "count": 566,
+  "count": 567,
   "verifiedCount": 20,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
@@ -14683,6 +14683,31 @@
       "source": {
         "name": "dsh-subscribe",
         "url": "https://github.com/FeatherHunter/dsh-opencode-palette"
+      }
+    },
+    {
+      "id": "dsh-archive-manager",
+      "name": "dsh-archive-manager",
+      "author": "jasonrale",
+      "category": "ui",
+      "description": "Archive management panel: reopen, unarchive, or permanently delete sessions, with search and native-feel UI.",
+      "description_zh": "归档管理面板：重新打开、取消归档、彻底删除会话，带搜索和原生质感 UI。",
+      "install": {
+        "target": "git",
+        "spec": "github:jasonrale/dsh-archive-manager"
+      },
+      "version": null,
+      "homepage": "https://github.com/jasonrale/dsh-archive-manager",
+      "verified": false,
+      "tags": [
+        "archive",
+        "sessions",
+        "ui"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/jasonrale/dsh-archive-manager"
       }
     }
   ]
