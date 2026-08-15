@@ -66,7 +66,7 @@
         "target": "git",
         "spec": "github:zoahdev/dsh-subscribe#path:/plugin"
       },
-      "version": "0.2.0",
+      "version": "0.3.0",
       "homepage": "https://github.com/zoahdev/dsh-subscribe",
       "verified": true,
       "tags": [
