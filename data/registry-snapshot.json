@@ -3,7 +3,7 @@
   "url": "https://awesome-dsh-plugin.com",
   "source": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
   "updated": "2026-08-16",
-  "count": 572,
+  "count": 574,
   "categories": {
     "ui": {
       "en": "UI Enhancements",
@@ -8633,6 +8633,36 @@
       "npm": "dsh-goodmemory",
       "stars": 0,
       "install": "dsh plugin --profile web add dsh-goodmemory",
+      "added": "2026-08-16"
+    },
+    {
+      "name": "dshelm",
+      "owner": "Altairpaca",
+      "url": "https://github.com/Altairpaca/dshelm",
+      "page": null,
+      "category": "workflow",
+      "description": {
+        "en": "OmO-inspired batteries-included agent distribution for DeepSeek Harness.",
+        "zh": "OmO 风格、开箱即用的 DeepSeek Harness agent 发行版。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:Altairpaca/dshelm",
+      "added": "2026-08-16"
+    },
+    {
+      "name": "dsh-permgate",
+      "owner": "MrWeiCodes",
+      "url": "https://github.com/MrWeiCodes/dsh-permgate",
+      "page": null,
+      "category": "tools",
+      "description": {
+        "en": "Fine-grained permission control for DeepSeek Harness.",
+        "zh": "DeepSeek Harness 细粒度权限控制。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:MrWeiCodes/dsh-permgate",
       "added": "2026-08-16"
     }
   ]
