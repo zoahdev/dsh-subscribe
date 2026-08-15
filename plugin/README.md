@@ -1,6 +1,6 @@
 # dsh-subscribe (plugin)
 
-Agent-native plugin marketplace for DeepSeek Harness: search **500+ community
+Agent-native plugin marketplace for DeepSeek Harness: search **536+ community
 plugins**, read market stats, and get exact install commands — right from the
 chat. This is the in-harness companion to the
 [web storefront](https://zoahdev.github.io/dsh-subscribe/) and the
@@ -41,7 +41,7 @@ snapshot, so search/stats/commands keep working without network access.
 
 ## 中文
 
-把插件市场装进 DeepSeek Harness：在对话里直接搜索 **500+ 社区插件**、查看
+把插件市场装进 DeepSeek Harness：在对话里直接搜索 **536+ 社区插件**、查看
 市场统计、拿到准确的安装命令。与网页商店和零依赖 CLI 配套使用。
 
 ```sh
