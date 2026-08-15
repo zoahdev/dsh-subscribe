@@ -3,120 +3,499 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>dsh-subscribe · DeepSeek Harness 插件市场</title>
+<title>dsh-subscribe · DeepSeek Harness 插件市场 / Plugin Marketplace</title>
+<meta name="description" content="Steam-style plugin marketplace for DeepSeek Harness: browse 500+ community plugins, subscribe in one click, sync everything into your profile with a single command. 支持中英文。">
+<meta property="og:title" content="dsh-subscribe · DSH Plugin Marketplace">
+<meta property="og:description" content="Browse 500+ DeepSeek Harness plugins, subscribe like Steam, sync with one command.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zoahdev.github.io/dsh-subscribe/">
+<meta name="theme-color" content="#1b2838">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "dsh-subscribe",
+  "url": "https://zoahdev.github.io/dsh-subscribe/",
+  "description": "Steam-style plugin marketplace for DeepSeek Harness"
+}
+</script>
 <style>
-  :root { color-scheme: dark; }
+  :root { color-scheme: dark; --bg:#1b2838; --bg2:#171a21; --panel:#16202d; --line:#1e2c3c; --ink:#c7d5e0; --muted:#8f98a0; --accent:#66c0f4; --green:#2a6b3d; --green-ink:#a3d9b1; --warn:#b4883a; --radius:10px; }
   * { box-sizing: border-box; }
-  body { margin: 0; background: #1b2838; color: #c7d5e0; font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
-  header { background: #171a21; padding: 14px 22px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-  header h1 { margin: 0; font-size: 20px; color: #fff; }
-  header .sub { color: #8f98a0; font-size: 12px; }
-  .spacer { flex: 1; }
-  #count { color: #66c0f4; font-weight: 600; }
-  .bar { padding: 12px 22px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; background: #1e2c3c; }
-  input[type=search] { background: #2a475e; border: 1px solid #1b2838; color: #fff; padding: 8px 12px; border-radius: 4px; min-width: 240px; }
-  button { background: #66c0f4; color: #1b2838; border: 0; border-radius: 4px; padding: 8px 14px; font-weight: 600; cursor: pointer; }
-  button.secondary { background: #2a475e; color: #c7d5e0; }
-  button.subscribed { background: #2a6b3d; color: #fff; }
-  .cats { display: flex; gap: 8px; flex-wrap: wrap; }
-  .cat { background: #2a475e; color: #c7d5e0; border: 0; border-radius: 12px; padding: 4px 12px; font-size: 12px; cursor: pointer; }
-  .cat.active { background: #66c0f4; color: #1b2838; }
-  main { max-width: 1200px; margin: 0 auto; padding: 20px 22px 80px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
-  .card { background: #16202d; border: 1px solid #1e2c3c; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
-  .card h3 { margin: 0; color: #fff; font-size: 16px; }
-  .card .meta { color: #8f98a0; font-size: 12px; }
-  .card .desc { color: #c7d5e0; font-size: 13px; line-height: 1.5; flex: 1; }
-  .card .row { display: flex; align-items: center; gap: 8px; }
-  .badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: #2a475e; color: #8f98a0; }
-  .badge.ok { background: #2a6b3d; color: #a3d9b1; }
-  .card a { color: #66c0f4; font-size: 12px; }
-  .hint { background: #10202e; border: 1px solid #1e2c3c; border-radius: 8px; padding: 14px; margin-top: 18px; }
-  .hint pre { background: #0d1117; color: #a5d6ff; padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 12px; }
-  footer { color: #8f98a0; font-size: 12px; text-align: center; padding: 20px; }
+  html { scroll-behavior: smooth; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; line-height:1.55; }
+  a { color:var(--accent); }
+  button { font:inherit; }
+  .wrap { max-width:1200px; margin:0 auto; padding:0 20px; }
+  header { background:var(--bg2); border-bottom:1px solid #000; }
+  header .wrap { display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding-top:12px; padding-bottom:12px; }
+  .logo { display:flex; align-items:baseline; gap:10px; }
+  .logo b { color:#fff; font-size:20px; letter-spacing:.2px; }
+  .logo span { color:var(--muted); font-size:12px; }
+  nav { display:flex; gap:12px; align-items:center; margin-left:auto; }
+  nav a { color:var(--muted); text-decoration:none; font-size:13px; }
+  nav a:hover { color:#fff; }
+  .subs { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .subs .count { color:var(--accent); font-weight:700; }
+  .btn { background:var(--accent); color:#1b2838; border:0; border-radius:6px; padding:8px 14px; font-weight:600; cursor:pointer; }
+  .btn:hover { filter:brightness(1.08); }
+  .btn.ghost { background:#2a475e; color:var(--ink); }
+  .btn.small { padding:5px 10px; font-size:12px; }
+  .btn.danger { background:#6d2f2f; color:#f2c4c4; }
+  .hero { padding:48px 0 28px; text-align:center; }
+  .hero h1 { color:#fff; font-size:clamp(26px,4.5vw,42px); margin:0 0 10px; }
+  .hero p { max-width:680px; margin:0 auto 22px; color:var(--muted); font-size:15px; }
+  .hero .cmd { display:inline-flex; align-items:center; gap:10px; background:#0d1117; border:1px solid var(--line); border-radius:var(--radius); padding:10px 14px; font-family:ui-monospace,Consolas,monospace; font-size:13px; color:#a5d6ff; max-width:100%; overflow-x:auto; }
+  .bar { background:#1e2c3c; border-radius:var(--radius); padding:12px 14px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:18px 0; }
+  .bar input[type=search] { background:#2a475e; border:1px solid transparent; color:#fff; padding:9px 12px; border-radius:6px; min-width:220px; flex:1; }
+  .bar select { background:#2a475e; color:var(--ink); border:0; border-radius:6px; padding:9px 10px; }
+  .cats { display:flex; gap:8px; flex-wrap:wrap; width:100%; }
+  .cat { background:#2a475e; color:var(--ink); border:0; border-radius:14px; padding:5px 12px; font-size:12px; cursor:pointer; }
+  .cat.active { background:var(--accent); color:#1b2838; font-weight:600; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:14px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:16px; display:flex; flex-direction:column; gap:9px; }
+  .card .top { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .card h3 { margin:0; color:#fff; font-size:16px; word-break:break-word; }
+  .badge { font-size:11px; padding:2px 9px; border-radius:12px; background:#2a475e; color:var(--muted); white-space:nowrap; }
+  .badge.ok { background:var(--green); color:var(--green-ink); }
+  .badge.npm { background:#cb3837; color:#fff; }
+  .meta { color:var(--muted); font-size:12px; }
+  .stars { color:#f4c542; font-size:12px; font-weight:600; }
+  .desc { color:var(--ink); font-size:13px; flex:1; }
+  .tags { display:flex; gap:6px; flex-wrap:wrap; }
+  .tag { font-size:11px; color:var(--muted); background:#22324a; padding:1px 8px; border-radius:10px; }
+  .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .row a { font-size:12px; }
+  .btn.subscribed { background:var(--green); color:#fff; }
+  .empty { color:var(--muted); text-align:center; padding:40px 0; }
+  .wizard { background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:20px; margin-top:24px; }
+  .steps { display:flex; gap:12px; flex-wrap:wrap; }
+  .step { flex:1; min-width:220px; background:#10202e; border:1px solid var(--line); border-radius:var(--radius); padding:14px; }
+  .step .num { display:inline-block; width:22px; height:22px; border-radius:50%; background:var(--accent); color:#1b2838; font-weight:700; text-align:center; line-height:22px; font-size:12px; margin-right:8px; }
+  .step h4 { color:#fff; margin:8px 0 6px; }
+  .step p { color:var(--muted); font-size:13px; margin:0 0 10px; }
+  .step pre { background:#0d1117; color:#a5d6ff; padding:9px; border-radius:6px; font-size:11px; overflow-x:auto; }
+  .hint { background:#10202e; border:1px solid var(--line); border-radius:var(--radius); padding:12px 14px; font-size:13px; color:var(--muted); margin-top:14px; }
+  .hint code { background:#0d1117; padding:2px 6px; border-radius:4px; color:#a5d6ff; font-size:12px; }
+  .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.6); display:flex; align-items:center; justify-content:center; z-index:50; padding:20px; }
+  .modal { background:#16202d; border:1px solid #2a475e; border-radius:14px; max-width:640px; width:100%; padding:24px; max-height:86vh; overflow:auto; }
+  .modal h2 { color:#fff; margin:0 0 16px; }
+  .modal .close { float:right; background:none; border:0; color:var(--muted); font-size:22px; cursor:pointer; }
+  .toast { position:fixed; bottom:22px; left:50%; transform:translateX(-50%); background:#2a475e; color:#fff; border:1px solid #66c0f4; border-radius:10px; padding:11px 18px; font-size:13px; box-shadow:0 6px 24px rgba(0,0,0,.4); z-index:60; opacity:0; pointer-events:none; transition:opacity .2s; max-width:92vw; }
+  .toast.show { opacity:1; }
+  footer { color:var(--muted); font-size:12px; text-align:center; padding:28px 10px 40px; }
+  footer a { color:var(--muted); }
+  footer a:hover { color:#fff; }
+  @media (max-width:640px) { nav { margin-left:0; width:100%; justify-content:space-between; } .hero .cmd { font-size:11px; } }
 </style>
 </head>
 <body>
 <header>
-  <h1>dsh-subscribe</h1>
-  <span class="sub">DeepSeek Harness 插件市场 · 像 Steam 一样一键订阅</span>
-  <div class="spacer"></div>
-  <span>已订阅 <span id="count">0</span></span>
-  <button id="export" class="secondary">导出订阅清单</button>
-  <button id="copycmd">复制同步命令</button>
-</header>
-<div class="bar">
-  <input id="q" type="search" placeholder="搜索插件…">
-  <div class="cats" id="cats"></div>
-</div>
-<main>
-  <div class="grid" id="grid"></div>
-  <div class="hint">
-    <b>订阅后如何安装（一条命令）</b>
-    <pre id="cmd">node dsh-subscribe.mjs sync --profile web</pre>
-    <span style="font-size:12px;color:#8f98a0">git 安装若被 pnpm 拦截，按 dsh CLI 打印的 allowBuilds 指引加一行后重跑 sync 即可。</span>
+  <div class="wrap">
+    <div class="logo"><b>dsh-subscribe</b><span>Steam-style DSH plugin store</span></div>
+    <nav>
+      <a href="https://github.com/zoahdev/dsh-subscribe" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://raw.githubusercontent.com/zoahdev/dsh-subscribe/main/registry.json" target="_blank" rel="noopener">Registry</a>
+      <button id="langBtn" class="btn small ghost" type="button">English</button>
+    </nav>
   </div>
-</main>
-<footer>数据来源：<a href="https://github.com/zoahdev/dsh-subscribe/blob/main/registry.json">registry.json</a> · ✅ = 已审计（CI/Release/安装验证） · 市场主页 <a href="https://github.com/zoahdev/dsh-subscribe">GitHub</a></footer>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <h1 data-i18n="heroTitle">订阅一次，一条命令装齐</h1>
+    <p data-i18n="heroDesc">DeepSeek Harness 的 Steam 式插件市场：浏览 <b id="totalCount">500+</b> 个社区插件，一键订阅，导出清单，一条命令全部同步进你的 dsh profile。</p>
+    <div class="cmd"><code id="heroCmd">git clone https://github.com/zoahdev/dsh-subscribe && cd dsh-subscribe</code><button id="heroCopy" class="btn small" type="button" data-i18n="copy">复制</button></div>
+    <p style="margin-top:12px"><button id="startWizard" class="btn" type="button" data-i18n="start">开始使用 →</button></p>
+  </section>
+
+  <div class="subs" style="justify-content:center;margin-bottom:8px">
+    <span data-i18n="subscribedCount">已订阅</span> <span class="count" id="subCount">0</span>
+    <button id="importBtn" class="btn ghost small" type="button" data-i18n="import">导入清单</button>
+    <button id="exportBtn" class="btn ghost small" type="button" data-i18n="export">导出清单</button>
+    <button id="copySync" class="btn ghost small" type="button" data-i18n="copySync">复制同步命令</button>
+    <button id="copyFull" class="btn ghost small" type="button" data-i18n="copyFull">复制完整安装流程</button>
+    <button id="clearBtn" class="btn danger small" type="button" data-i18n="clear">清空</button>
+    <input id="fileInput" type="file" accept="application/json,.json" hidden>
+  </div>
+
+  <div class="bar">
+    <input id="q" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="搜索插件…">
+    <select id="sort" aria-label="Sort">
+      <option value="stars" data-i18n="sortStars">按星标排序</option>
+      <option value="verified" data-i18n="sortVerified">已验证优先</option>
+      <option value="name" data-i18n="sortName">按名称</option>
+    </select>
+    <div class="cats" id="cats"></div>
+  </div>
+
+  <main class="grid" id="grid" aria-live="polite"><p class="empty" data-i18n="loading">加载注册表…</p></main>
+
+  <section class="wizard">
+    <h3 style="color:#fff;margin-top:0" data-i18n="howTitle">三步开始</h3>
+    <div class="steps">
+      <div class="step">
+        <span class="num">1</span><h4 data-i18n="step1Title">订阅</h4>
+        <p data-i18n="step1Desc">浏览下面的卡片，点击「订阅」。订阅保存在浏览器本地。</p>
+        <button id="scrollGrid" class="btn small ghost" type="button" data-i18n="step1Btn">去看插件</button>
+      </div>
+      <div class="step">
+        <span class="num">2</span><h4 data-i18n="step2Title">导出</h4>
+        <p data-i18n="step2Desc">点击「导出清单」下载 subscriptions.json，或复制同步命令。</p>
+        <button id="exportBtn2" class="btn small ghost" type="button" data-i18n="export">导出清单</button>
+      </div>
+      <div class="step">
+        <span class="num">3</span><h4 data-i18n="step3Title">同步</h4>
+        <p data-i18n="step3Desc">克隆仓库，把清单放进去，跑一条命令，全部装进你的 profile。</p>
+        <pre id="syncPre">node scripts/dsh-subscribe.mjs sync --profile web</pre>
+        <button id="copyFull2" class="btn small" type="button" data-i18n="copyFull">复制完整安装流程</button>
+      </div>
+    </div>
+    <div class="hint" data-i18n="allowHint">git 安装被 pnpm 拦截时：按 dsh CLI 打印的 allowBuilds 指引，在 profile 的 pnpm-workspace.yaml 里加对应包名，再重跑 sync 即可。</div>
+  </section>
+</div>
+
+<div id="modal" class="modal-backdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Wizard">
+    <button id="closeModal" class="close" type="button" aria-label="Close">×</button>
+    <h2 data-i18n="modalTitle">把插件市场装进你的 Harness</h2>
+    <p data-i18n="modalDesc">dsh-subscribe 有三种用法，任选其一：</p>
+    <pre style="background:#0d1117;padding:12px;border-radius:8px;overflow-x:auto;color:#a5d6ff;font-size:12px" id="modalCmd"></pre>
+    <div class="row" style="margin-top:14px">
+      <button id="modalCopy1" class="btn small" type="button" data-i18n="copyInstallPlugin">复制安装命令</button>
+      <button id="modalCopy2" class="btn small ghost" type="button" data-i18n="copySubscribeCmd">复制订阅同步流程</button>
+    </div>
+    <div class="hint" data-i18n="modalHint">npm 版插件通常秒装；git 版插件若被 allowBuilds 拦截，按提示加白名单后重跑。</div>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status"></div>
+<footer>
+  <p><span id="footerCount">536</span> 个插件 · <span id="footerVerified">20</span> 个 zoahdev 已验证 · 数据源 <a href="https://awesome-dsh-plugin.com" target="_blank" rel="noopener">awesome-dsh-plugin</a> + <a href="https://github.com/zoahdev/dsh-subscribe" target="_blank" rel="noopener">zoahdev</a> · MIT</p>
+  <p data-i18n="disclaimer">列出一项 ≠ 背书：第三方插件是别人的代码，安装前请自行判断信任。</p>
+</footer>
+
 <script>
 const REGISTRY_URL = 'https://raw.githubusercontent.com/zoahdev/dsh-subscribe/main/registry.json'
-const KEY = 'dsh-subscribe:v1'
-let registry = { plugins: [] }
-let subs = new Set(JSON.parse(localStorage.getItem(KEY) ?? '[]'))
-let activeCat = '全部'
+const STORE_KEY = 'dsh-subscribe:v2'
+const PROFILE = 'web'
+const I18N = {
+  zh: {
+    heroTitle: '订阅一次，一条命令装齐',
+    heroDesc: 'DeepSeek Harness 的 Steam 式插件市场：浏览 <b id="totalCount">500+</b> 个社区插件，一键订阅，导出清单，一条命令全部同步进你的 dsh profile。',
+    copy: '复制',
+    copied: '已复制 ✓',
+    start: '开始使用 →',
+    subscribedCount: '已订阅',
+    import: '导入清单',
+    export: '导出清单',
+    copySync: '复制同步命令',
+    copyFull: '复制完整安装流程',
+    clear: '清空',
+    searchPlaceholder: '搜索插件…',
+    sortStars: '按星标排序',
+    sortVerified: '已验证优先',
+    sortName: '按名称',
+    loading: '加载注册表…',
+    loadError: '加载注册表失败，请刷新重试。',
+    noMatch: '没有匹配的插件。',
+    verified: '已验证',
+    community: '社区',
+    subscribe: '订阅',
+    subscribed: '已订阅 ✓',
+    copyInstall: '复制安装命令',
+    installCopied: '安装命令已复制：',
+    syncCopied: '同步命令已复制（先导出清单，放到 dsh-subscribe 目录）',
+    fullCopied: '完整流程已复制：克隆 → 放清单 → 同步',
+    imported: '清单已导入',
+    importError: '导入失败：不是有效的 subscriptions.json',
+    cleared: '已清空订阅',
+    homepage: '主页 →',
+    howTitle: '三步开始',
+    step1Title: '订阅',
+    step1Desc: '浏览下面的卡片，点击「订阅」。订阅保存在浏览器本地。',
+    step1Btn: '去看插件',
+    step2Title: '导出',
+    step2Desc: '点击「导出清单」下载 subscriptions.json，或复制同步命令。',
+    step3Title: '同步',
+    step3Desc: '克隆仓库，把清单放进去，跑一条命令，全部装进你的 profile。',
+    allowHint: 'git 安装被 pnpm 拦截时：按 dsh CLI 打印的 allowBuilds 指引，在 profile 的 pnpm-workspace.yaml 里加对应包名，再重跑 sync 即可。',
+    modalTitle: '把插件市场装进你的 Harness',
+    modalDesc: 'dsh-subscribe 有三种用法，任选其一：',
+    modalHint: 'npm 版插件通常秒装；git 版插件若被 allowBuilds 拦截，按提示加白名单后重跑。',
+    copyInstallPlugin: '复制安装命令',
+    copySubscribeCmd: '复制订阅同步流程',
+    disclosure: '列出一项 ≠ 背书：第三方插件是别人的代码，安装前请自行判断信任。',
+    noDesc: '（该插件暂无中文描述）',
+  },
+  en: {
+    heroTitle: 'Subscribe once, sync with one command',
+    heroDesc: 'A Steam-style plugin marketplace for DeepSeek Harness: browse <b id="totalCount">500+</b> community plugins, subscribe in one click, export the list, and sync everything into your dsh profile with a single command.',
+    copy: 'Copy',
+    copied: 'Copied ✓',
+    start: 'Get started →',
+    subscribedCount: 'Subscribed',
+    import: 'Import',
+    export: 'Export',
+    copySync: 'Copy sync command',
+    copyFull: 'Copy full flow',
+    clear: 'Clear',
+    searchPlaceholder: 'Search plugins…',
+    sortStars: 'Top stars',
+    sortVerified: 'Verified first',
+    sortName: 'By name',
+    loading: 'Loading registry…',
+    loadError: 'Failed to load the registry. Refresh to retry.',
+    noMatch: 'No matching plugins.',
+    verified: 'Verified',
+    community: 'Community',
+    subscribe: 'Subscribe',
+    subscribed: 'Subscribed ✓',
+    copyInstall: 'Copy install command',
+    installCopied: 'Install command copied:',
+    syncCopied: 'Sync command copied (export the list first and place it in the dsh-subscribe folder)',
+    fullCopied: 'Full flow copied: clone → add list → sync',
+    imported: 'Subscription list imported',
+    importError: 'Import failed: not a valid subscriptions.json',
+    cleared: 'Subscriptions cleared',
+    homepage: 'Homepage →',
+    howTitle: 'Get started in three steps',
+    step1Title: 'Subscribe',
+    step1Desc: 'Browse the cards below and click "Subscribe". Subscriptions are stored locally in your browser.',
+    step1Btn: 'Browse plugins',
+    step2Title: 'Export',
+    step2Desc: 'Download subscriptions.json with "Export", or copy the sync command.',
+    step3Title: 'Sync',
+    step3Desc: 'Clone the repo, drop the list in, run one command, and everything installs into your profile.',
+    allowHint: 'If pnpm blocks git installs: follow the allowBuilds hint printed by the dsh CLI, add the package name to the profile\'s pnpm-workspace.yaml, and re-run sync.',
+    modalTitle: 'Put the store inside your Harness',
+    modalDesc: 'dsh-subscribe works three ways — pick one:',
+    modalHint: 'npm plugins usually install in seconds; git plugins blocked by allowBuilds just need the whitelist entry, then re-run.',
+    copyInstallPlugin: 'Copy install command',
+    copySubscribeCmd: 'Copy subscribe flow',
+    disclosure: 'Listing ≠ endorsement: plugins are third-party code — trust what you install.',
+    noDesc: '（No English description yet）',
+  },
+}
+
+let registry = { plugins: [], categories: {}, count: 0, verifiedCount: 0 }
+let subs = []
+let lang = navigator.language && navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en'
+let activeCat = 'all'
+let query = ''
+let sort = 'stars'
 
 const $ = (id) => document.getElementById(id)
-const esc = (s) => s.replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]))
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]))
+const t = (key) => I18N[lang][key] ?? key
+
+function loadSubs() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(STORE_KEY) ?? '{"plugins":[]}')
+    subs = Array.isArray(raw) ? raw.map((id) => ({ id: String(id) })) : (Array.isArray(raw.plugins) ? raw.plugins : [])
+  } catch { subs = [] }
+}
+function saveSubs() { localStorage.setItem(STORE_KEY, JSON.stringify({ version: 2, profile: PROFILE, plugins: subs })) }
+
+function toast(message) {
+  const el = $('toast')
+  el.textContent = message
+  el.classList.add('show')
+  clearTimeout(toast._timer)
+  toast._timer = setTimeout(() => el.classList.remove('show'), 2600)
+}
+
+function copyText(text, okMessage) {
+  const done = () => toast(okMessage)
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done))
+  } else {
+    fallbackCopy(text, done)
+  }
+}
+function fallbackCopy(text, done) {
+  const ta = document.createElement('textarea')
+  ta.value = text
+  ta.style.position = 'fixed'
+  ta.style.opacity = '0'
+  document.body.appendChild(ta)
+  ta.select()
+  try { document.execCommand('copy') } catch {}
+  document.body.removeChild(ta)
+  done()
+}
+
+function catLabel(cat) {
+  const map = registry.categories?.[cat]
+  return map ? (lang === 'zh' ? map.zh : map.en) : cat
+}
+
+function pluginById(id) { return registry.plugins.find((p) => p.id === id) }
+
+function installCommand(p) {
+  const spec = p.install && p.install.spec ? p.install.spec : p.id
+  return `dsh plugin --profile ${PROFILE} add ${spec}`
+}
+
+function syncCommand() {
+  return `node scripts/dsh-subscribe.mjs sync --profile ${PROFILE}`
+}
+
+function fullFlowCommand() {
+  return `git clone https://github.com/zoahdev/dsh-subscribe
+cd dsh-subscribe
+# place your exported subscriptions.json here
+${syncCommand()}`
+}
+
+function exportPayload() {
+  return {
+    version: 2,
+    profile: PROFILE,
+    exportedAt: new Date().toISOString(),
+    plugins: subs.map((s) => {
+      const p = pluginById(s.id)
+      return p ? { id: p.id, name: p.name, spec: p.install?.spec ?? p.id, addedAt: s.addedAt ?? new Date().toISOString(), installed: false } : null
+    }).filter(Boolean),
+  }
+}
 
 function categories() {
-  const set = new Set(['全部'])
+  const set = new Set(['all'])
   for (const p of registry.plugins) set.add(p.category)
   return [...set]
 }
 
+function renderCats() {
+  $('cats').innerHTML = categories().map((c) =>
+    `<button class="cat ${c === activeCat ? 'active' : ''}" data-cat="${esc(c)}">${c === 'all' ? (lang === 'zh' ? '全部' : 'All') : esc(catLabel(c))}</button>`
+  ).join('')
+  document.querySelectorAll('.cat').forEach((b) => { b.onclick = () => { activeCat = b.dataset.cat; render() } })
+}
+
+function sorted(list) {
+  const arr = [...list]
+  if (sort === 'stars') arr.sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0))
+  if (sort === 'verified') arr.sort((a, b) => (b.verified ? 1 : 0) - (a.verified ? 1 : 0))
+  if (sort === 'name') arr.sort((a, b) => a.name.localeCompare(b.name))
+  return arr
+}
+
 function render() {
-  $('count').textContent = subs.size
-  $('cats').innerHTML = categories().map((c) => `<button class="cat ${c === activeCat ? 'active' : ''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('')
-  const q = $('q').value.trim().toLowerCase()
-  const list = registry.plugins.filter((p) => (activeCat === '全部' || p.category === activeCat) && (q === '' || (p.name + ' ' + p.id + ' ' + p.description).toLowerCase().includes(q)))
+  $('langBtn').textContent = lang === 'zh' ? 'English' : '中文'
+  document.documentElement.lang = lang
+  $('totalCount').textContent = registry.count || registry.plugins.length
+  $('footerCount').textContent = registry.count || registry.plugins.length
+  $('footerVerified').textContent = registry.verifiedCount || registry.plugins.filter((p) => p.verified).length
+  $('subCount').textContent = subs.length
+  $('syncPre').textContent = syncCommand()
+  $('heroCmd').textContent = fullFlowCommand()
+  $('modalCmd').textContent = [
+    `# 1) browse: open ${location.origin}${location.pathname}`,
+    `# 2) one plugin right now:`,
+    `dsh plugin --profile ${PROFILE} add github:zoahdev/dsh-subscribe#path:/plugin`,
+    `# 3) or subscribe on the web and sync:`,
+    fullFlowCommand(),
+  ].join('\n')
+  renderCats()
+
+  const q = query.trim().toLowerCase()
+  const list = sorted(registry.plugins.filter((p) => {
+    const okCat = activeCat === 'all' || p.category === activeCat
+    if (!okCat) return false
+    if (q === '') return true
+    const hay = `${p.name} ${p.id} ${p.author} ${p.description} ${p.description_zh} ${(p.tags || []).join(' ')}`.toLowerCase()
+    return hay.includes(q)
+  }))
+
   $('grid').innerHTML = list.map((p) => {
-    const on = subs.has(p.id)
+    const on = subs.some((s) => s.id === p.id)
+    const desc = lang === 'zh' ? (p.description_zh || p.description || t('noDesc')) : (p.description || p.description_zh || t('noDesc'))
+    const stars = typeof p.stars === 'number' && p.stars > 0 ? `<span class="stars">★ ${p.stars}</span>` : ''
+    const version = p.version ? `v${esc(p.version)}` : ''
+    const npmBadge = p.install && p.install.target === 'npm' ? '<span class="badge npm">npm</span>' : ''
     return `<div class="card">
-      <div class="row"><h3>${esc(p.name)}</h3><span class="badge ${p.verified ? 'ok' : ''}">${p.verified ? '✅ 已验证' : '○ 未审计'}</span></div>
-      <div class="meta">${esc(p.author)} · ${esc(p.category)} · v${esc(p.version ?? '?')}</div>
-      <div class="desc">${esc(p.description)}</div>
-      <div class="row"><button class="${on ? 'subscribed' : ''}" data-id="${esc(p.id)}">${on ? '✓ 已订阅' : '订阅'}</button>
-      <a href="${esc(p.homepage)}" target="_blank" rel="noopener">主页 ↗</a></div>
+      <div class="top">
+        <h3>${esc(p.name)}</h3>
+        <span class="badge ${p.verified ? 'ok' : ''}">${p.verified ? '✓ ' + t('verified') : t('community')}</span>${npmBadge}
+      </div>
+      <div class="meta">${esc(p.author)} · ${esc(catLabel(p.category))}${version ? ' · ' + version : ''} ${stars}</div>
+      <div class="desc">${esc(desc)}</div>
+      <div class="tags">${(p.tags || []).slice(0, 4).map((tag) => `<span class="tag">${esc(tag)}</span>`).join('')}</div>
+      <div class="row">
+        <button class="btn small ${on ? 'subscribed' : ''}" data-id="${esc(p.id)}" type="button">${on ? '✓ ' + t('subscribed') : t('subscribe')}</button>
+        <button class="btn small ghost" data-install="${esc(p.id)}" type="button">${t('copyInstall')}</button>
+        ${p.homepage ? `<a href="${esc(p.homepage)}" target="_blank" rel="noopener">${t('homepage')}</a>` : ''}
+      </div>
     </div>`
-  }).join('') || '<p style="color:#8f98a0">没有匹配的插件。</p>'
-  document.querySelectorAll('.cat').forEach((b) => b.onclick = () => { activeCat = b.dataset.cat; render() })
-  document.querySelectorAll('button[data-id]').forEach((b) => b.onclick = () => {
-    const id = b.dataset.id
-    if (subs.has(id)) subs.delete(id); else subs.add(id)
-    localStorage.setItem(KEY, JSON.stringify([...subs]))
-    render()
+  }).join('') || `<p class="empty">${t('noMatch')}</p>`
+
+  document.querySelectorAll('button[data-id]').forEach((b) => {
+    b.onclick = () => {
+      const id = b.dataset.id
+      const i = subs.findIndex((s) => s.id === id)
+      if (i === -1) subs.push({ id, addedAt: new Date().toISOString() })
+      else subs.splice(i, 1)
+      saveSubs()
+      render()
+    }
+  })
+  document.querySelectorAll('button[data-install]').forEach((b) => {
+    b.onclick = () => {
+      const p = pluginById(b.dataset.install)
+      if (p) copyText(installCommand(p), `${t('installCopied')} ${installCommand(p)}`)
+    }
   })
 }
 
-$('export').onclick = () => {
-  const payload = { version: 1, profile: 'web', plugins: [...subs].map((id) => {
-    const p = registry.plugins.find((x) => x.id === id)
-    return p ? { id: p.id, name: p.name, spec: p.install.target === 'npm' ? p.install.spec : p.install.spec, addedAt: new Date().toISOString(), installed: false } : null
-  }).filter(Boolean) }
-  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' })
+function importFile(file) {
+  const reader = new FileReader()
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(String(reader.result))
+      const list = Array.isArray(data) ? data : (Array.isArray(data.plugins) ? data.plugins : [])
+      subs = list.map((x) => ({ id: String(x.id ?? x), addedAt: x.addedAt ?? new Date().toISOString() }))
+      saveSubs()
+      render()
+      toast(t('imported'))
+    } catch { toast(t('importError')) }
+  }
+  reader.readAsText(file)
+}
+
+$('langBtn').onclick = () => { lang = lang === 'zh' ? 'en' : 'zh'; render() }
+$('q').oninput = (e) => { query = e.target.value; render() }
+$('sort').onchange = (e) => { sort = e.target.value; render() }
+$('startWizard').onclick = () => { $('modal').hidden = false }
+$('closeModal').onclick = () => { $('modal').hidden = true }
+$('modal').onclick = (e) => { if (e.target === $('modal')) $('modal').hidden = true }
+$('modalCopy1').onclick = () => copyText('dsh plugin --profile web add github:zoahdev/dsh-subscribe#path:/plugin', `${t('installCopied')} dsh plugin --profile web add github:zoahdev/dsh-subscribe#path:/plugin`)
+$('modalCopy2').onclick = () => copyText(fullFlowCommand(), t('fullCopied'))
+$('scrollGrid').onclick = () => document.querySelector('.grid').scrollIntoView({ behavior: 'smooth' })
+$('heroCopy').onclick = () => copyText(fullFlowCommand(), t('fullCopied'))
+$('copySync').onclick = () => copyText(syncCommand(), t('syncCopied'))
+$('copyFull').onclick = () => copyText(fullFlowCommand(), t('fullCopied'))
+$('copyFull2').onclick = () => copyText(fullFlowCommand(), t('fullCopied'))
+$('exportBtn').onclick = () => {
+  const blob = new Blob([JSON.stringify(exportPayload(), null, 2)], { type: 'application/json' })
   const a = document.createElement('a')
   a.href = URL.createObjectURL(blob)
   a.download = 'subscriptions.json'
   a.click()
+  URL.revokeObjectURL(a.href)
 }
+$('exportBtn2').onclick = $('exportBtn').onclick
+$('importBtn').onclick = () => $('fileInput').click()
+$('fileInput').onchange = (e) => { if (e.target.files[0]) importFile(e.target.files[0]); e.target.value = '' }
+$('clearBtn').onclick = () => { subs = []; saveSubs(); render(); toast(t('cleared')) }
 
-$('copycmd').onclick = () => {
-  const cmd = 'git clone https://github.com/zoahdev/dsh-subscribe && cd dsh-subscribe\nnode scripts/dsh-subscribe.mjs sync --profile web'
-  navigator.clipboard.writeText(cmd).then(() => alert('已复制同步命令（先下载订阅清单，放到 dsh-subscribe 目录）'))
-}
+fetch(REGISTRY_URL)
+  .then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json() })
+  .then((d) => { registry = d; render() })
+  .catch(() => { $('grid').innerHTML = `<p class="empty">${t('loadError')}</p>`; render() })
 
-fetch(REGISTRY_URL).then((r) => r.json()).then((d) => { registry = d; render() }).catch(() => { $('grid').innerHTML = '<p style="color:#8f98a0">加载注册表失败，请刷新。</p>' })
-$('q').oninput = render
+loadSubs()
+render()
 </script>
 </body>
 </html>
