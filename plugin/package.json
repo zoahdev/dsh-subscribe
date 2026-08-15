@@ -1,0 +1,52 @@
+{
+  "name": "dsh-subscribe",
+  "version": "0.2.0",
+  "description": "Agent-native plugin marketplace for DeepSeek Harness: search 500+ community plugins, market stats, and install commands — right from the chat.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "data",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test test/plugin.test.mjs",
+    "pack": "pnpm pack"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.6"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.6"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "marketplace",
+    "market",
+    "subscribe",
+    "agent"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoahdev/dsh-subscribe.git"
+  },
+  "homepage": "https://zoahdev.github.io/dsh-subscribe/",
+  "engines": {
+    "node": ">=20"
+  }
+}
