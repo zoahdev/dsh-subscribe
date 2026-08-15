@@ -13,7 +13,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { spawnSync } from 'node:child_process'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const tgz = path.resolve(process.argv[2] ?? path.join(root, 'dsh-subscribe-0.2.0.tgz'))
+const tgz = path.resolve(process.argv[2] ?? path.join(root, 'dsh-subscribe-0.3.0.tgz'))
 
 if (!existsSync(tgz)) {
   console.error(`[runtime-smoke] missing tarball: ${tgz}`)
@@ -66,12 +66,25 @@ try {
   }
 
   const registered = []
+  const routes = []
   const ctx = {
     tools: {
       register: (definition) => {
         registered.push(definition)
         return () => {}
       },
+    },
+    inject: (services, callback) => {
+      if (services.includes('webServer')) {
+        callback({
+          webServer: {
+            register: (route) => {
+              routes.push(route)
+              return () => {}
+            },
+          },
+        })
+      }
     },
   }
 
@@ -122,6 +135,34 @@ try {
     throw new Error(`unexpected command shape: ${commandResult.commands[0]}`)
   }
   console.log(`[runtime-smoke] market_install_command executed: ${commandResult.count} commands`)
+
+  const routePaths = routes.map((r) => r.path)
+  for (const expected of ['/dsh-subscribe/registry', '/dsh-subscribe/install', '/dsh-subscribe/', '/dsh-subscribe/update']) {
+    if (!routePaths.includes(expected)) throw new Error(`missing market route ${expected}`)
+  }
+
+  const regRoute = routes.find((r) => r.path === '/dsh-subscribe/registry')
+  const regRes = { status: 0, body: '', writeHead(s, h) { this.status = s; this.headers = h }, end(b) { this.body = b } }
+  await regRoute.handler({ method: 'GET', url: '/dsh-subscribe/registry', headers: {} }, regRes)
+  const regBody = JSON.parse(regRes.body)
+  if (regBody.count < 500) throw new Error(`registry route returned too few plugins: ${regBody.count}`)
+
+  const installRoute = routes.find((r) => r.path === '/dsh-subscribe/install')
+  const denyRes = { status: 0, body: '', writeHead(s, h) { this.status = s; this.headers = h }, end(b) { this.body = b } }
+  await installRoute.handler({
+    method: 'POST',
+    url: '/dsh-subscribe/install',
+    headers: {},
+    [Symbol.asyncIterator]: async function* () { yield Buffer.from(JSON.stringify({ spec: 'dsh-context' })) },
+  }, denyRes)
+  if (denyRes.status !== 403) throw new Error(`install without origin should be 403, got ${denyRes.status}`)
+
+  const uiRoute = routes.find((r) => r.path === '/dsh-subscribe/')
+  const uiRes = { status: 0, body: '', writeHead(s, h) { this.status = s; this.headers = h }, end(b) { this.body = b } }
+  await uiRoute.handler({ method: 'GET', url: '/dsh-subscribe/', headers: {} }, uiRes)
+  if (!String(uiRes.body).includes('dsh-subscribe')) throw new Error('market UI page missing dsh-subscribe')
+
+  console.log(`[runtime-smoke] market routes registered: ${routePaths.length}, registry GET + install origin guard + UI page asserted`)
 
   console.log('PASS [runtime-smoke] packed plugin loaded, tools registered, all handlers executed and asserted')
 } finally {
