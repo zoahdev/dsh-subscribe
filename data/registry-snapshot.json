@@ -3,7 +3,7 @@
   "url": "https://awesome-dsh-plugin.com",
   "source": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
   "updated": "2026-08-15",
-  "count": 559,
+  "count": 562,
   "categories": {
     "ui": {
       "en": "UI Enhancements",
@@ -8438,6 +8438,51 @@
       "npm": "@alib8b8/dsh-plugin-aflare",
       "stars": 0,
       "install": "dsh plugin --profile web add @alib8b8/dsh-plugin-aflare",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "deepseek-harness-action",
+      "owner": "Lixiaoyiao",
+      "url": "https://github.com/Lixiaoyiao/deepseek-harness-action",
+      "page": null,
+      "category": "workflow",
+      "description": {
+        "en": "GitHub Action: run DeepSeek Harness for PR/Issue/CI workflows.",
+        "zh": "GitHub Action：在 PR/Issue/CI 工作流里运行 DeepSeek Harness。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:Lixiaoyiao/deepseek-harness-action",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-mcp",
+      "owner": "ArvinQi",
+      "url": "https://github.com/ArvinQi/dsh-mcp",
+      "page": null,
+      "category": "tools",
+      "description": {
+        "en": "MCP management UI + tool search for DeepSeek Harness: stable tool list, hit cache, context-safe.",
+        "zh": "DeepSeek Harness 的 MCP 管理界面 + 工具搜索：工具列表稳定、命中缓存、不撑爆上下文。"
+      },
+      "npm": "dsh-mcp",
+      "stars": 0,
+      "install": "dsh plugin --profile web add dsh-mcp",
+      "added": "2026-08-15"
+    },
+    {
+      "name": "dsh-deepseek-vision",
+      "owner": "siegfly",
+      "url": "https://github.com/siegfly/dsh-deepseek-vision",
+      "page": null,
+      "category": "tools",
+      "description": {
+        "en": "Paste images in chat; pure-text DeepSeek can see them without changing models.",
+        "zh": "聊天窗口贴图，纯文本 DeepSeek 也能看图，无需换模型。"
+      },
+      "npm": "dsh-deepseek-vision",
+      "stars": 0,
+      "install": "dsh plugin --profile web add dsh-deepseek-vision",
       "added": "2026-08-15"
     }
   ]
