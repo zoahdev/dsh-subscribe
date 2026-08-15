@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "updated": "2026-08-15",
-  "count": 559,
+  "updated": "2026-08-16",
+  "count": 561,
   "verifiedCount": 20,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
@@ -14516,6 +14516,54 @@
       "source": {
         "name": "dsh-subscribe",
         "url": "https://github.com/GIStudio/SpatialHarness"
+      }
+    },
+    {
+      "id": "dsh-mmx-bridge",
+      "name": "dsh-mmx-bridge",
+      "author": "welsione",
+      "category": "multimodal",
+      "description": "MiniMax multimodal bridge for DeepSeek Harness.",
+      "description_zh": "DeepSeek Harness 的 MiniMax 多模态桥接。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-mmx-bridge"
+      },
+      "version": "1.0.0",
+      "homepage": "https://github.com/welsione/dsh-mmx-bridge",
+      "verified": false,
+      "tags": [
+        "multimodal",
+        "bridge"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/welsione/dsh-mmx-bridge"
+      }
+    },
+    {
+      "id": "dsh-goodmemory",
+      "name": "dsh-goodmemory",
+      "author": "hjqcan",
+      "category": "memory",
+      "description": "Automatic cross-session memory for DeepSeek Harness.",
+      "description_zh": "DeepSeek Harness 自动跨会话记忆。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-goodmemory"
+      },
+      "version": "0.1.0",
+      "homepage": "https://github.com/hjqcan/dsh-goodmemory",
+      "verified": false,
+      "tags": [
+        "memory",
+        "session"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/hjqcan/dsh-goodmemory"
       }
     }
   ]
