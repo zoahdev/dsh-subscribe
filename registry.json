@@ -1,0 +1,232 @@
+{
+  "version": 1,
+  "updated": "2026-08-15",
+  "note": "verified=true means zoahdev audited CI/release/install. Other entries are community plugins listed from public repos; verify before trusting.",
+  "plugins": [
+    {
+      "id": "dsh-github-intelligence",
+      "name": "GitHub Intelligence",
+      "author": "zoahdev",
+      "category": "integration",
+      "description": "195+ read-only tools across 15 ecosystems + weekly digest.",
+      "install": { "target": "git", "spec": "github:zoahdev/dsh-github-intelligence" },
+      "version": "2.8.0",
+      "homepage": "https://github.com/zoahdev/dsh-github-intelligence",
+      "verified": true,
+      "tags": ["github", "integration", "search", "releases"]
+    },
+    {
+      "id": "dsh-plugin-doctor",
+      "name": "Plugin Doctor",
+      "author": "zoahdev",
+      "category": "tools",
+      "description": "Pre-publish health checks, preflight, profile shadow detection, env diagnostics.",
+      "install": { "target": "git", "spec": "github:zoahdev/dsh-plugin-doctor" },
+      "version": "1.5.0",
+      "homepage": "https://github.com/zoahdev/dsh-plugin-doctor",
+      "verified": true,
+      "tags": ["doctor", "health-check", "diagnostics", "cli"]
+    },
+    {
+      "id": "dsh-plugin-search",
+      "name": "Plugin Search",
+      "author": "zoahdev",
+      "category": "tools",
+      "description": "Search npm + awesome list from inside DSH, with GitHub fallback.",
+      "install": { "target": "git", "spec": "github:zoahdev/dsh-plugin-search" },
+      "version": "1.1.0",
+      "homepage": "https://github.com/zoahdev/dsh-plugin-search",
+      "verified": true,
+      "tags": ["search", "discoverability", "registry"]
+    },
+    {
+      "id": "dsh-github-release-radar",
+      "name": "GitHub Release Radar",
+      "author": "zoahdev",
+      "category": "integration",
+      "description": "Releases, stars, search, and git tags — no API key.",
+      "install": { "target": "git", "spec": "github:zoahdev/dsh-github-release-radar" },
+      "version": "0.2.0",
+      "homepage": "https://github.com/zoahdev/dsh-github-release-radar",
+      "verified": true,
+      "tags": ["github", "releases", "stars"]
+    },
+    {
+      "id": "dsh-plugin-template",
+      "name": "Plugin Template",
+      "author": "zoahdev",
+      "category": "experimental",
+      "description": "Minimal verified plugin template with a runtime peer guard.",
+      "install": { "target": "git", "spec": "github:zoahdev/dsh-plugin-template" },
+      "version": "0.1.0",
+      "homepage": "https://github.com/zoahdev/dsh-plugin-template",
+      "verified": true,
+      "tags": ["template", "scaffold"]
+    },
+    {
+      "id": "dsh-browser",
+      "name": "DSH Browser",
+      "author": "Lum1104",
+      "category": "integration",
+      "description": "Chrome sidebar extension that lets DSH operate your browser.",
+      "install": { "target": "git", "spec": "github:Lum1104/dsh-browser" },
+      "homepage": "https://github.com/Lum1104/dsh-browser",
+      "verified": false,
+      "tags": ["browser", "automation"]
+    },
+    {
+      "id": "modsearch",
+      "name": "ModSearch",
+      "author": "liustack",
+      "category": "integration",
+      "description": "Web search bridge for DSH.",
+      "install": { "target": "git", "spec": "github:liustack/modsearch" },
+      "homepage": "https://github.com/liustack/modsearch",
+      "verified": false,
+      "tags": ["search", "web"]
+    },
+    {
+      "id": "modlens",
+      "name": "ModLens",
+      "author": "liustack",
+      "category": "integration",
+      "description": "Vision plugin: the vision bridge for every text-only agent.",
+      "install": { "target": "git", "spec": "github:liustack/modlens" },
+      "homepage": "https://github.com/liustack/modlens",
+      "verified": false,
+      "tags": ["vision", "multimodal"]
+    },
+    {
+      "id": "dsh-vision-toolkit",
+      "name": "DSH Vision Toolkit",
+      "author": "Anionex",
+      "category": "integration",
+      "description": "Native OCR / UI / vision toolkit for DeepSeek Harness.",
+      "install": { "target": "git", "spec": "github:Anionex/dsh-vision-toolkit" },
+      "homepage": "https://github.com/Anionex/dsh-vision-toolkit",
+      "verified": false,
+      "tags": ["vision", "ocr", "ui"]
+    },
+    {
+      "id": "dsh-turn-rewind",
+      "name": "DSH Turn Rewind",
+      "author": "Anionex",
+      "category": "tools",
+      "description": "Rewind conversation and workspace state.",
+      "install": { "target": "git", "spec": "github:Anionex/dsh-turn-rewind" },
+      "homepage": "https://github.com/Anionex/dsh-turn-rewind",
+      "verified": false,
+      "tags": ["history", "rewind"]
+    },
+    {
+      "id": "dsh-agent-teams",
+      "name": "DSH Agent Teams",
+      "author": "NanmiCoder",
+      "category": "workflow",
+      "description": "Agent teams for DeepSeek Harness.",
+      "install": { "target": "git", "spec": "github:NanmiCoder/dsh-agent-teams" },
+      "homepage": "https://github.com/NanmiCoder/dsh-agent-teams",
+      "verified": false,
+      "tags": ["agents", "teams"]
+    },
+    {
+      "id": "dsh-find-plugins",
+      "name": "DSH Find Plugins",
+      "author": "Nagi-ovo",
+      "category": "tools",
+      "description": "Skill that finds, installs, and verifies GitHub plugins.",
+      "install": { "target": "git", "spec": "github:Nagi-ovo/dsh-find-plugins" },
+      "homepage": "https://github.com/Nagi-ovo/dsh-find-plugins",
+      "verified": false,
+      "tags": ["search", "install"]
+    },
+    {
+      "id": "dsh-memory-evolve",
+      "name": "DSH Memory Evolve",
+      "author": "csyangwen",
+      "category": "workflow",
+      "description": "Memory evolution with git and webhooks.",
+      "install": { "target": "git", "spec": "github:csyangwen/dsh-memory-evolve" },
+      "homepage": "https://github.com/csyangwen/dsh-memory-evolve",
+      "verified": false,
+      "tags": ["memory", "git"]
+    },
+    {
+      "id": "dsh-open-in-vscode",
+      "name": "DSH Open in VS Code",
+      "author": "omdsh-dev",
+      "category": "tools",
+      "description": "Open DSH workspace directories in VS Code from the web GUI.",
+      "install": { "target": "git", "spec": "github:omdsh-dev/dsh-open-in-vscode" },
+      "homepage": "https://github.com/omdsh-dev/dsh-open-in-vscode",
+      "verified": false,
+      "tags": ["vscode", "webui"]
+    },
+    {
+      "id": "dsh-notification",
+      "name": "DSH Notification",
+      "author": "omdsh-dev",
+      "category": "tools",
+      "description": "Desktop notifications for turn completions.",
+      "install": { "target": "git", "spec": "github:omdsh-dev/dsh-notification" },
+      "homepage": "https://github.com/omdsh-dev/dsh-notification",
+      "verified": false,
+      "tags": ["notification", "desktop"]
+    },
+    {
+      "id": "dsh-genui",
+      "name": "DSH GenUI",
+      "author": "omdsh-dev",
+      "category": "tools",
+      "description": "Interactive UI components rendered inline in assistant messages.",
+      "install": { "target": "git", "spec": "github:omdsh-dev/dsh-genui" },
+      "homepage": "https://github.com/omdsh-dev/dsh-genui",
+      "verified": false,
+      "tags": ["ui", "interactive"]
+    },
+    {
+      "id": "dsh-at-file",
+      "name": "DSH @File",
+      "author": "omdsh-dev",
+      "category": "tools",
+      "description": "Codex-style @file mentions for DeepSeek Harness.",
+      "install": { "target": "git", "spec": "github:omdsh-dev/dsh-at-file" },
+      "homepage": "https://github.com/omdsh-dev/dsh-at-file",
+      "verified": false,
+      "tags": ["files", "mentions"]
+    },
+    {
+      "id": "dsh-visualize",
+      "name": "DSH Visualize",
+      "author": "Nagi-ovo",
+      "category": "tools",
+      "description": "Render model-generated interactive cards inside DSH conversations.",
+      "install": { "target": "git", "spec": "github:Nagi-ovo/dsh-visualize" },
+      "homepage": "https://github.com/Nagi-ovo/dsh-visualize",
+      "verified": false,
+      "tags": ["visualization", "cards"]
+    },
+    {
+      "id": "dsh-ads",
+      "name": "DSH Ads",
+      "author": "Nagi-ovo",
+      "category": "experimental",
+      "description": "Parody ads, fake games, and popups for the DSH Web UI.",
+      "install": { "target": "git", "spec": "github:Nagi-ovo/dsh-ads" },
+      "homepage": "https://github.com/Nagi-ovo/dsh-ads",
+      "verified": false,
+      "tags": ["fun", "webui"]
+    },
+    {
+      "id": "dsh-mcp-client",
+      "name": "DSH MCP Client",
+      "author": "deepseek-harness",
+      "category": "integration",
+      "description": "Official MCP client so your agent can call external MCP tools.",
+      "install": { "target": "npm", "spec": "@deepseek-ai/dsh-mcp-client" },
+      "homepage": "https://github.com/deepseek-harness/dsh-mcp-client",
+      "verified": false,
+      "tags": ["mcp", "official"]
+    }
+  ]
+}
