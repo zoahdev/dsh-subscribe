@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-08-16",
-  "count": 563,
+  "count": 564,
   "verifiedCount": 20,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
@@ -14612,6 +14612,30 @@
       "source": {
         "name": "dsh-subscribe",
         "url": "https://github.com/MrWeiCodes/dsh-permgate"
+      }
+    },
+    {
+      "id": "dsh-persist",
+      "name": "dsh-persist",
+      "author": "tluoluo",
+      "category": "memory",
+      "description": "Memory layering + semantic retrieval + auto-recall so DSH agents no longer forget across sessions.",
+      "description_zh": "记忆分层 + 语义检索 + 自动召回，DSH agent 不再换对话就失忆。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-persist"
+      },
+      "version": "0.2.0",
+      "homepage": "https://github.com/tluoluo/dsh-persist",
+      "verified": false,
+      "tags": [
+        "memory",
+        "retrieval"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/tluoluo/dsh-persist"
       }
     }
   ]
