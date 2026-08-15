@@ -105,7 +105,7 @@ HTTP API (same-origin):
 | `/dsh-subscribe/` | GET | in-harness storefront UI |
 
 Build it locally with `cd plugin && pnpm install && pnpm pack`, then
-`dsh plugin --profile web add ./dsh-subscribe-0.3.0.tgz`.
+`dsh plugin --profile web add ./dsh-subscribe-0.3.1.tgz`.
 
 ## Registry and the "verified" flag
 
