@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { spawnSync } from 'node:child_process'
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { closeSync, mkdtempSync, openSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -10,7 +10,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const CLI = path.join(ROOT, 'scripts', 'dsh-subscribe.mjs')
 
 function node(args, cwd = ROOT) {
-  return spawnSync(process.execPath, args, { cwd, encoding: 'utf8' })
+  return spawnSync(process.execPath, args, { cwd, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
 }
 
 test('registry passes structural checks', () => {
@@ -20,9 +20,23 @@ test('registry passes structural checks', () => {
 })
 
 test('CLI list exposes the full merged registry', () => {
-  const r = node([CLI, 'list', '--json'])
-  assert.equal(r.status, 0, r.stderr || r.stdout)
-  const data = JSON.parse(r.stdout)
+  const dir = mkdtempSync(path.join(tmpdir(), 'dsh-subscribe-list-'))
+  let data
+  try {
+    const out = path.join(dir, 'list.json')
+    const fd = openSync(out, 'w')
+    const r = spawnSync(process.execPath, [CLI, 'list', '--json'], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+      stdio: ['ignore', fd, fd],
+    })
+    closeSync(fd)
+    assert.equal(r.status, 0, r.stderr || '')
+    data = JSON.parse(readFileSync(out, 'utf8'))
+  } finally {
+    rmSync(dir, { recursive: true, force: true })
+  }
   assert.ok(data.total >= 500, `expected >=500 plugins, got ${data.total}`)
   assert.ok(data.plugins.some((p) => p.verified), 'expected verified plugins in list')
 })
