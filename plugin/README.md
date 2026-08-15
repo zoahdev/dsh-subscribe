@@ -18,7 +18,7 @@ Or from a local build:
 cd plugin
 pnpm install
 pnpm pack
-dsh plugin --profile web add ./dsh-subscribe-0.2.0.tgz
+dsh plugin --profile web add ./dsh-subscribe-0.3.0.tgz
 ```
 
 Restart `dsh web` (or the profile serving your UI). The three tools then
@@ -32,6 +32,21 @@ appear in the agent's tool registry:
 
 `market_install_command` never installs anything by itself — commands are
 returned for the user to review and run in a terminal.
+
+## In-harness storefront (browser UI)
+
+When the host exposes a webServer (web profiles), the plugin also mounts a
+full storefront at `http://localhost:<dsh-web-port>/dsh-subscribe/`:
+
+- browse/search the 536-plugin registry (bilingual, star/verified sorting)
+- **one-click install / uninstall / update**
+- build-script approval for git plugins blocked by pnpm `allowBuilds`
+- Steam-style subscribe list (export `subscriptions.json`, copy sync command)
+- live install progress + sanitized log export
+
+Install/uninstall/update require a same-origin POST; install specs must come
+from the curated registry or be explicit `file:`/`link:` specs. The agent
+tools keep working in headless profiles without a webServer.
 
 ## Offline behavior
 
