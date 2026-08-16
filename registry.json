@@ -1,8 +1,8 @@
 {
   "version": 2,
   "updated": "2026-08-16",
-  "count": 571,
-  "verifiedCount": 20,
+  "count": 572,
+  "verifiedCount": 21,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
     "ui": {
@@ -49,12 +49,43 @@
       "en": "Market",
       "zh": "市场"
     },
+    "security": {
+      "en": "Security & Safety",
+      "zh": "安全与防护"
+    },
     "fun": {
       "en": "Just for Fun",
       "zh": "娱乐"
     }
   },
   "plugins": [
+    {
+      "id": "dsh-poison-guard",
+      "name": "Poison Guard",
+      "author": "zoahdev",
+      "category": "security",
+      "description": "AST + deobfuscation supply-chain poison scanner: catches obfuscated exfiltration, dynamic eval, hidden shell commands, and install-time scripts.",
+      "description_zh": "AST + 反混淆供应链投毒扫描器：拦截混淆的外发、动态 eval、隐藏 shell 命令、安装脚本。",
+      "install": {
+        "target": "git",
+        "spec": "github:zoahdev/dsh-poison-guard"
+      },
+      "version": "0.2.0",
+      "homepage": "https://github.com/zoahdev/dsh-poison-guard",
+      "verified": true,
+      "tags": [
+        "security",
+        "supply-chain",
+        "sast",
+        "audit",
+        "malware"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "zoahdev",
+        "url": "https://github.com/zoahdev/dsh-subscribe"
+      }
+    },
     {
       "id": "dsh-subscribe",
       "name": "dsh-subscribe",
@@ -13961,7 +13992,7 @@
     },
     {
       "id": "managed-agents",
-      "name": "SandBase Harness",
+      "name": "managed-agents",
       "author": "sandbaseai",
       "category": "workflow",
       "description": "Durable agent sessions over stdio MCP: list/create/run/get/stop persistent agents and read artifacts (6 tools).",
@@ -13970,23 +14001,24 @@
         "target": "git",
         "spec": "github:sandbaseai/sandbase-harness"
       },
-      "version": "0.3.2",
+      "version": null,
       "homepage": "https://github.com/sandbaseai/sandbase-harness",
       "verified": false,
       "tags": [
         "workflow",
-        "mcp",
-        "agents"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/sandbaseai/sandbase-harness"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
       "id": "dsh-1024store",
-      "name": "DSH 1024Store",
+      "name": "dsh-1024store",
       "author": "imsai-sh",
       "category": "market",
       "description": "Community plugin catalog + settings-page marketplace: discovery, manifest checks, confirmed install/uninstall through the official dsh plugin flow.",
@@ -13995,17 +14027,19 @@
         "target": "npm",
         "spec": "dsh-1024store"
       },
-      "version": "0.2.0",
+      "version": null,
       "homepage": "https://deepseek1024.com/",
       "verified": false,
       "tags": [
         "market",
-        "catalog"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/imsai-sh/awesome-deepseek-harness-plugins"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14019,17 +14053,19 @@
         "target": "npm",
         "spec": "dsh-web-shell"
       },
-      "version": "0.1.0",
+      "version": null,
       "homepage": "https://github.com/JesmonX/dsh-web-shell",
       "verified": false,
       "tags": [
         "ui",
-        "terminal"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/JesmonX/dsh-web-shell"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14047,13 +14083,15 @@
       "homepage": "https://github.com/AythyaCrispus/dsh-minimal-msys2",
       "verified": false,
       "tags": [
-        "shell",
-        "windows"
+        "tools",
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/AythyaCrispus/dsh-minimal-msys2"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14067,17 +14105,19 @@
         "target": "git",
         "spec": "github:zfu691531-hash/dsh-codex-collab"
       },
-      "version": "0.1.3",
+      "version": null,
       "homepage": "https://github.com/zfu691531-hash/dsh-codex-collab",
       "verified": false,
       "tags": [
         "workflow",
-        "codex"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/zfu691531-hash/dsh-codex-collab"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14091,17 +14131,19 @@
         "target": "npm",
         "spec": "dsh-codex-migrate"
       },
-      "version": "0.1.3",
+      "version": null,
       "homepage": "https://github.com/polarskicpl/dsh-codex-migrate",
       "verified": false,
       "tags": [
         "workflow",
-        "migrate"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/polarskicpl/dsh-codex-migrate"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14115,17 +14157,19 @@
         "target": "npm",
         "spec": "dsh-turn-rail"
       },
-      "version": "0.1.0",
+      "version": null,
       "homepage": "https://github.com/Yujm888/dsh-turn-rail",
       "verified": false,
       "tags": [
         "ui",
-        "navigation"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/Yujm888/dsh-turn-rail"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14139,22 +14183,24 @@
         "target": "npm",
         "spec": "@yokesky/dsh-usage-lens"
       },
-      "version": "0.1.3",
+      "version": null,
       "homepage": "https://github.com/yokesky/dsh-usage-lens",
       "verified": false,
       "tags": [
         "ui",
-        "usage"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/yokesky/dsh-usage-lens"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
       "id": "trajectory-reader",
-      "name": "Trajectory Reader",
+      "name": "trajectory-reader",
       "author": "flyingtimes",
       "category": "ui",
       "description": "DSH web plugin that interprets each round of the trajectory.",
@@ -14163,17 +14209,19 @@
         "target": "npm",
         "spec": "@clarkchan/trajectory-reader"
       },
-      "version": "0.2.3",
+      "version": null,
       "homepage": "https://github.com/flyingtimes/dsh-trajectory-reader",
       "verified": false,
       "tags": [
         "ui",
-        "trajectory"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/flyingtimes/dsh-trajectory-reader"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14191,13 +14239,15 @@
       "homepage": "https://github.com/yangfch3/dsh-mcp-mgr",
       "verified": false,
       "tags": [
-        "mcp",
-        "tools"
+        "tools",
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/yangfch3/dsh-mcp-mgr"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14211,22 +14261,24 @@
         "target": "npm",
         "spec": "dsh-sidebar-files"
       },
-      "version": "0.1.0",
+      "version": null,
       "homepage": "https://github.com/Fallen0543/dsh-sidebar-files",
       "verified": false,
       "tags": [
         "ui",
-        "files"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/Fallen0543/dsh-sidebar-files"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
       "id": "dsh-plugin-aflare",
-      "name": "aflare",
+      "name": "dsh-plugin-aflare",
       "author": "alib8b8",
       "category": "workflow",
       "description": "Deterministic workflow tools for DSH agents.",
@@ -14235,17 +14287,19 @@
         "target": "npm",
         "spec": "@alib8b8/dsh-plugin-aflare"
       },
-      "version": "0.1.0",
+      "version": null,
       "homepage": "https://github.com/alib8b8/aflare",
       "verified": false,
       "tags": [
         "workflow",
-        "deterministic"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/alib8b8/aflare"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14259,17 +14313,19 @@
         "target": "git",
         "spec": "github:Lixiaoyiao/deepseek-harness-action"
       },
-      "version": "0.2.0",
+      "version": null,
       "homepage": "https://github.com/Lixiaoyiao/deepseek-harness-action",
       "verified": false,
       "tags": [
         "workflow",
-        "actions"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/Lixiaoyiao/deepseek-harness-action"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14283,17 +14339,19 @@
         "target": "npm",
         "spec": "dsh-mcp"
       },
-      "version": "1.1.0",
+      "version": null,
       "homepage": "https://github.com/ArvinQi/dsh-mcp",
       "verified": false,
       "tags": [
-        "mcp",
-        "tools"
+        "tools",
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/ArvinQi/dsh-mcp"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14307,17 +14365,19 @@
         "target": "npm",
         "spec": "dsh-deepseek-vision"
       },
-      "version": "0.1.3",
+      "version": null,
       "homepage": "https://github.com/siegfly/dsh-deepseek-vision",
       "verified": false,
       "tags": [
-        "vision",
-        "tools"
+        "tools",
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/siegfly/dsh-deepseek-vision"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14325,24 +14385,25 @@
       "name": "dsh-pet-evolve",
       "author": "zoahdev",
       "category": "fun",
-      "description": "The pet that grows with your agent: 5 evolution stages from real signals, 4 skins, focus timer, agent-state mirroring, one-click growth share card PNG. Zero dependencies, 100% local.",
-      "description_zh": "会随 agent 成长的宠物：真实信号驱动 5 阶段进化，4 款皮肤、专注计时、镜像 agent 状态、一键导出成长分享卡 PNG。零依赖、全本地。",
+      "description": "The pet that grows with your agent: 5 evolution stages from real signals (verified rules, sessions, tool calls, compactions), agent-state mirroring, one-click growth share card PNG. Zero dependencies, 100% local.",
+      "description_zh": "会随 agent 成长的宠物：真实信号（已验证规则/会话/工具调用/压缩）驱动 5 阶段进化，镜像 agent 状态，一键导出成长分享卡 PNG。零依赖、全本地。",
       "install": {
         "target": "git",
         "spec": "github:zoahdev/dsh-pet-evolve"
       },
-      "version": "0.3.0",
+      "version": null,
       "homepage": "https://github.com/zoahdev/dsh-pet-evolve",
-      "verified": true,
+      "verified": false,
       "tags": [
         "fun",
-        "pet",
-        "evolution"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/zoahdev/dsh-pet-evolve"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14361,13 +14422,14 @@
       "verified": false,
       "tags": [
         "ui",
-        "files",
-        "git"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/Happy2Git/dsh-compass"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14386,13 +14448,14 @@
       "verified": false,
       "tags": [
         "fun",
-        "game",
-        "collection"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/swaylq/dsh-wildmon"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14400,25 +14463,25 @@
       "name": "dsh-shelf",
       "author": "zoahdev",
       "category": "session",
-      "description": "Session lifecycle for DSH: web panel + offline dashboard + health check (verify) + rescue export for un-resumable sessions + DSH plugin + CLI, CJK Chinese search. Zero deps, read-only by default.",
-      "description_zh": "DSH 会话生命周期：Web 面板 + 离线看板 + 健康检查（verify）+ 不可恢复会话抢救导出（rescue）+ DSH 插件 + CLI，中文搜索。零依赖、默认只读。",
+      "description": "Session lifecycle for DSH: export (md/json/jsonl), archive/restore, trash, search, and stats. Zero dependencies, read-only by default, nothing ever deleted without an explicit move.",
+      "description_zh": "DSH 会话生命周期管理：导出（md/json/jsonl）、归档/恢复、回收站、搜索、统计。零依赖、默认只读，引擎从不删除任何东西。",
       "install": {
         "target": "npm",
         "spec": "dsh-shelf"
       },
-      "version": "0.6.0",
+      "version": null,
       "homepage": "https://github.com/zoahdev/dsh-shelf",
-      "verified": true,
+      "verified": false,
       "tags": [
         "session",
-        "archive",
-        "export",
-        "search"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/zoahdev/dsh-shelf"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14436,13 +14499,15 @@
       "homepage": "https://github.com/zfu691531-hash/dsh-realtime-voice",
       "verified": false,
       "tags": [
-        "voice",
-        "multimodal"
+        "multimodal",
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/zfu691531-hash/dsh-realtime-voice"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14456,17 +14521,19 @@
         "target": "npm",
         "spec": "dsh-plugin-browser-use"
       },
-      "version": "0.3.1",
+      "version": null,
       "homepage": "https://github.com/coderdailyone/dsh-plugin-browser-use",
       "verified": false,
       "tags": [
-        "browser",
-        "workflow"
+        "workflow",
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/coderdailyone/dsh-plugin-browser-use"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14480,22 +14547,24 @@
         "target": "npm",
         "spec": "dsh-plugin-web-search-tavily"
       },
-      "version": "0.1.2",
+      "version": null,
       "homepage": "https://github.com/coderdailyone/dsh-plugin-web-search-tavily",
       "verified": false,
       "tags": [
-        "search",
-        "workflow"
+        "workflow",
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/coderdailyone/dsh-plugin-web-search-tavily"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
       "id": "spatialharness",
-      "name": "SpatialHarness",
+      "name": "spatialharness",
       "author": "GIStudio",
       "category": "workflow",
       "description": "WebGIS MCP integration: let DeepSeek Harness operate geographic information systems directly.",
@@ -14508,14 +14577,15 @@
       "homepage": "https://github.com/GIStudio/SpatialHarness",
       "verified": false,
       "tags": [
-        "gis",
-        "mcp",
-        "workflow"
+        "workflow",
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/GIStudio/SpatialHarness"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-15"
       }
     },
     {
@@ -14529,17 +14599,19 @@
         "target": "npm",
         "spec": "dsh-mmx-bridge"
       },
-      "version": "1.0.0",
+      "version": null,
       "homepage": "https://github.com/welsione/dsh-mmx-bridge",
       "verified": false,
       "tags": [
         "multimodal",
-        "bridge"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/welsione/dsh-mmx-bridge"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-16"
       }
     },
     {
@@ -14553,22 +14625,24 @@
         "target": "npm",
         "spec": "dsh-goodmemory"
       },
-      "version": "0.1.0",
+      "version": null,
       "homepage": "https://github.com/hjqcan/dsh-goodmemory",
       "verified": false,
       "tags": [
         "memory",
-        "session"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/hjqcan/dsh-goodmemory"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-16"
       }
     },
     {
       "id": "dshelm",
-      "name": "DSHelm",
+      "name": "dshelm",
       "author": "Altairpaca",
       "category": "workflow",
       "description": "OmO-inspired batteries-included agent distribution for DeepSeek Harness.",
@@ -14581,13 +14655,15 @@
       "homepage": "https://github.com/Altairpaca/dshelm",
       "verified": false,
       "tags": [
-        "distribution",
-        "workflow"
+        "workflow",
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/Altairpaca/dshelm"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-16"
       }
     },
     {
@@ -14605,13 +14681,15 @@
       "homepage": "https://github.com/MrWeiCodes/dsh-permgate",
       "verified": false,
       "tags": [
-        "permissions",
-        "security"
+        "tools",
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/MrWeiCodes/dsh-permgate"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-16"
       }
     },
     {
@@ -14625,17 +14703,19 @@
         "target": "npm",
         "spec": "dsh-persist"
       },
-      "version": "0.2.0",
+      "version": null,
       "homepage": "https://github.com/tluoluo/dsh-persist",
       "verified": false,
       "tags": [
         "memory",
-        "retrieval"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/tluoluo/dsh-persist"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-16"
       }
     },
     {
@@ -14654,12 +14734,14 @@
       "verified": false,
       "tags": [
         "memory",
-        "self-evolution"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/findshan/dsh-agent-memory"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-16"
       }
     },
     {
@@ -14677,12 +14759,15 @@
       "homepage": "https://github.com/FeatherHunter/dsh-opencode-palette",
       "verified": false,
       "tags": [
-        "theme"
+        "theme",
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/FeatherHunter/dsh-opencode-palette"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-16"
       }
     },
     {
@@ -14700,19 +14785,20 @@
       "homepage": "https://github.com/jasonrale/dsh-archive-manager",
       "verified": false,
       "tags": [
-        "archive",
-        "sessions",
-        "ui"
+        "ui",
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/jasonrale/dsh-archive-manager"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-16"
       }
     },
     {
       "id": "dsh-tui",
-      "name": "@tomowang/dsh-tui",
+      "name": "dsh-tui",
       "author": "tomowang",
       "category": "ui",
       "description": "Terminal TUI frontend for DeepSeek Harness: drive the agent from a terminal instead of the browser.",
@@ -14725,14 +14811,15 @@
       "homepage": "https://github.com/tomowang/dsh-tui",
       "verified": false,
       "tags": [
-        "tui",
-        "terminal",
-        "frontend"
+        "ui",
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/tomowang/dsh-tui"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-16"
       }
     },
     {
@@ -14750,14 +14837,15 @@
       "homepage": "https://github.com/brunhildzhou/dsh-all-warmup",
       "verified": false,
       "tags": [
-        "warmup",
-        "performance",
-        "agent"
+        "optimization",
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/brunhildzhou/dsh-all-warmup"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-16"
       }
     },
     {
@@ -14776,13 +14864,14 @@
       "verified": false,
       "tags": [
         "memory",
-        "context",
-        "handoff"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/knqiufan/powercontext-dsh"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-16"
       }
     },
     {
@@ -14801,13 +14890,14 @@
       "verified": false,
       "tags": [
         "security",
-        "lock",
-        "ui"
+        "community"
       ],
       "stars": 0,
       "source": {
-        "name": "dsh-subscribe",
-        "url": "https://github.com/steamfeifei/dsh-password-gate"
+        "name": "awesome-dsh-plugin",
+        "url": "https://awesome-dsh-plugin.com",
+        "page": null,
+        "added": "2026-08-16"
       }
     }
   ]
