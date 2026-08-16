@@ -10,7 +10,11 @@
     "registry.json",
     "scripts",
     "docs",
-    "plugin",
+    "plugin/cordis.patch.yml",
+    "plugin/package.json",
+    "plugin/lib",
+    "plugin/data",
+    "plugin/README.md",
     "README.md",
     "LICENSE"
   ],
