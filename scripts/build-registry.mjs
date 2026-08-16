@@ -165,6 +165,7 @@ function main() {
       notify: { en: 'Notifications & Integrations', zh: '通知与集成' },
       dev: { en: 'Development & Runtime', zh: '开发与运行时' },
       market: { en: 'Market', zh: '市场' },
+      security: { en: 'Security & Safety', zh: '安全与防护' },
       fun: { en: 'Just for Fun', zh: '娱乐' },
     },
     plugins,
