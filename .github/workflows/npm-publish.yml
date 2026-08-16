@@ -1,8 +1,10 @@
 name: npm-publish
 
 on:
+  workflow_dispatch:
   push:
-    tags: ['v*']
+    tags:
+      - 'v*'
 
 concurrency:
   group: npm-publish-${{ github.ref }}
@@ -10,6 +12,7 @@ concurrency:
 
 jobs:
   publish:
+    if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     defaults:
       run:
