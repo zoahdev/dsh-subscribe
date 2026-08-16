@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-08-16",
-  "count": 569,
+  "count": 571,
   "verifiedCount": 20,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
@@ -14758,6 +14758,56 @@
       "source": {
         "name": "dsh-subscribe",
         "url": "https://github.com/brunhildzhou/dsh-all-warmup"
+      }
+    },
+    {
+      "id": "powercontext-dsh",
+      "name": "powercontext-dsh",
+      "author": "knqiufan",
+      "category": "memory",
+      "description": "Project-level, cross-session memory, recall, handoff, experience, and skills via the OceanBase PowerContext server (HTTP).",
+      "description_zh": "通过 HTTP 接入 OceanBase PowerContext，提供项目级、跨会话的记忆、召回、交接、经验与技能。",
+      "install": {
+        "target": "git",
+        "spec": "github:knqiufan/powercontext-dsh"
+      },
+      "version": null,
+      "homepage": "https://github.com/knqiufan/powercontext-dsh",
+      "verified": false,
+      "tags": [
+        "memory",
+        "context",
+        "handoff"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/knqiufan/powercontext-dsh"
+      }
+    },
+    {
+      "id": "dsh-password-gate",
+      "name": "dsh-password-gate",
+      "author": "steamfeifei",
+      "category": "security",
+      "description": "Temporary internet-cafe style screen lock for the DSH web GUI (idle auto-lock, first login free after restart).",
+      "description_zh": "DSH Web GUI 的临时门禁：网吧式挂机锁屏、空闲自动锁、重启后首次免密登录。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-password-gate"
+      },
+      "version": null,
+      "homepage": "https://github.com/steamfeifei/dsh-password-gate",
+      "verified": false,
+      "tags": [
+        "security",
+        "lock",
+        "ui"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "dsh-subscribe",
+        "url": "https://github.com/steamfeifei/dsh-password-gate"
       }
     }
   ]
