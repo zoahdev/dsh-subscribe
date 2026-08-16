@@ -1,5 +1,9 @@
 # dsh-subscribe
 
+[![CI](https://github.com/zoahdev/dsh-subscribe/actions/workflows/ci.yml/badge.svg)](https://github.com/zoahdev/dsh-subscribe/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Registry](https://img.shields.io/badge/registry-908%20plugins-58a6ff.svg)](https://github.com/zoahdev/dsh-subscribe)
+
 English | [中文](#中文)
 
 [![CI](https://github.com/zoahdev/dsh-subscribe/actions/workflows/ci.yml/badge.svg)](https://github.com/zoahdev/dsh-subscribe/actions)
