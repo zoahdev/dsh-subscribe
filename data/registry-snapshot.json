@@ -3,7 +3,7 @@
   "url": "https://awesome-dsh-plugin.com",
   "source": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
   "updated": "2026-08-16",
-  "count": 580,
+  "count": 582,
   "categories": {
     "ui": {
       "en": "UI Enhancements",
@@ -8753,6 +8753,36 @@
       "npm": "dsh-all-warmup",
       "stars": 0,
       "install": "dsh plugin --profile web add dsh-all-warmup",
+      "added": "2026-08-16"
+    },
+    {
+      "name": "powercontext-dsh",
+      "owner": "knqiufan",
+      "url": "https://github.com/knqiufan/powercontext-dsh",
+      "page": null,
+      "category": "memory",
+      "description": {
+        "en": "Project-level, cross-session memory, recall, handoff, experience, and skills via the OceanBase PowerContext server (HTTP).",
+        "zh": "通过 HTTP 接入 OceanBase PowerContext，提供项目级、跨会话的记忆、召回、交接、经验与技能。"
+      },
+      "npm": null,
+      "stars": 0,
+      "install": "dsh plugin --profile web add github:knqiufan/powercontext-dsh",
+      "added": "2026-08-16"
+    },
+    {
+      "name": "dsh-password-gate",
+      "owner": "steamfeifei",
+      "url": "https://github.com/steamfeifei/dsh-password-gate",
+      "page": null,
+      "category": "security",
+      "description": {
+        "en": "Temporary internet-cafe style screen lock for the DSH web GUI (idle auto-lock, first login free after restart).",
+        "zh": "DSH Web GUI 的临时门禁：网吧式挂机锁屏、空闲自动锁、重启后首次免密登录。"
+      },
+      "npm": "dsh-password-gate",
+      "stars": 0,
+      "install": "dsh plugin --profile web add dsh-password-gate",
       "added": "2026-08-16"
     }
   ]
