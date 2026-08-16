@@ -7165,7 +7165,14 @@
    "npm": "dsh-plugin-deepseek-vision",
    "stars": 3,
    "install": "dsh plugin --profile web add dsh-plugin-deepseek-vision",
-   "added": "2026-08-15"
+   "added": "2026-08-15",
+   "screenshots": [
+    "https://raw.githubusercontent.com/GOU-GEE/deepseek-vision/main/docs/screenshots/01-settings.png",
+    "https://raw.githubusercontent.com/GOU-GEE/deepseek-vision/main/docs/screenshots/02-paste-analyze.png",
+    "https://raw.githubusercontent.com/GOU-GEE/deepseek-vision/main/docs/screenshots/03-clipboard.png",
+    "https://raw.githubusercontent.com/GOU-GEE/deepseek-vision/main/docs/screenshots/04-result.png",
+    "https://raw.githubusercontent.com/GOU-GEE/deepseek-vision/main/docs/screenshots/05-market.png"
+   ]
   },
   {
    "name": "dsh-pilot",
