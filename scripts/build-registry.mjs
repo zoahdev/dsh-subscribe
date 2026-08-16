@@ -126,10 +126,13 @@ function main() {
   const curated = { plugins: curatedPlugins.length > 0 ? curatedPlugins : previous.plugins }
 
   const seenIds = new Set()
+  const seenSpecs = new Set()
   const plugins = []
   for (const p of curated.plugins) {
     seenIds.add(p.id)
-    plugins.push(curatedEntry(p))
+    const ce = curatedEntry(p)
+    if (ce.install?.spec) seenSpecs.add(ce.install.spec)
+    plugins.push(ce)
   }
 
   let dropped = 0
@@ -144,6 +147,13 @@ function main() {
       dropped += 1
       continue
     }
+    // The curated list (and any earlier entry) also wins on install-spec
+    // collision, so a community mirror of an already-listed repo is skipped.
+    if (entry.install.spec && seenSpecs.has(entry.install.spec)) {
+      dropped += 1
+      continue
+    }
+    if (entry.install.spec) seenSpecs.add(entry.install.spec)
     plugins.push(entry)
   }
 
