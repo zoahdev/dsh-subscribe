@@ -1,0 +1,40 @@
+name: refresh-registry
+
+on:
+  schedule:
+    - cron: '47 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Fetch community snapshot
+        run: node scripts/fetch-snapshot.mjs
+
+      - name: Rebuild merged registry
+        run: node scripts/build-registry.mjs
+
+      - name: Validate registry
+        run: node scripts/check-registry.mjs
+
+      - name: Commit if changed
+        run: |
+          git config user.name "zoahdev"
+          git config user.email "245318860+zoahdev@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add registry.json data/ plugin/data/
+            git commit -m "registry: refresh community snapshot ($(date -u +%Y-%m-%d))"
+            git push
+          else
+            echo "no changes"
+          fi
