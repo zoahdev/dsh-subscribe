@@ -11,7 +11,7 @@ English | [中文](#中文)
 [![Storefront](https://img.shields.io/website?label=storefront&url=https%3A%2F%2Fzoahdev.github.io%2Fdsh-subscribe%2F)](https://zoahdev.github.io/dsh-subscribe/)
 [![awesome-dsh-plugin](https://img.shields.io/badge/awesome--dsh--plugin-listed-brightgreen)](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)
 
-**Steam-style plugin marketplace for DeepSeek Harness.** Browse **571+
+**Steam-style plugin marketplace for DeepSeek Harness.** Browse **900+
 community plugins** on the web storefront, subscribe to the ones you want,
 then run **one command** to install everything into your dsh profile. A
 zero-dependency CLI and an in-harness plugin (search/stats/install commands
@@ -80,7 +80,7 @@ registers three tools:
 
 | Tool | Purpose |
 | --- | --- |
-| `market_search` | Search 571+ plugins by query/category/verified flag, sorted by stars |
+| `market_search` | Search 900+ plugins by query/category/verified flag, sorted by stars |
 | `market_stats` | Total/verified counts and per-category breakdown |
 | `market_install_command` | Returns the exact `dsh plugin add` commands for the user to run |
 
