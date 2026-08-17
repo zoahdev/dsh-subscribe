@@ -18,7 +18,7 @@ zero-dependency CLI and an in-harness plugin (search/stats/install commands
 from the chat) are included.
 
 - 🏪 Storefront: <https://zoahdev.github.io/dsh-subscribe/>
-- 📦 Registry: [registry.json](./registry.json) — 571 plugins, 20 verified by
+- 📦 Registry: [registry.json](./registry.json) — 908 plugins, 21 verified by
   zoahdev, refreshed from [awesome-dsh-plugin.com](https://awesome-dsh-plugin.com)
 - 🔧 CLI: `node scripts/dsh-subscribe.mjs sync --profile web`
 - 🤖 In-harness plugin: `market_search`, `market_stats`,
