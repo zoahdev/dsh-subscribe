@@ -1,8 +1,8 @@
 {
   "version": 2,
   "updated": "2026-08-18",
-  "count": 912,
-  "verifiedCount": 25,
+  "count": 913,
+  "verifiedCount": 26,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
     "ui": {
@@ -676,6 +676,33 @@
         "productivity",
         "session-log",
         "wakatime"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "zoahdev",
+        "url": "https://github.com/zoahdev/dsh-subscribe"
+      }
+    },
+    {
+      "id": "dsh-discussions-radar",
+      "name": "Discussions Radar",
+      "author": "zoahdev",
+      "category": "workflow",
+      "description": "Official GitHub Discussions radar for DeepSeek Harness: list/filter/search the official boards (Ideas / Q&A / Show Your Plugins! / General / Announcements / Polls). CLI + agent-callable discussions_radar tool, dsh-discussions-radar/v1 reports.",
+      "description_zh": "DeepSeek Harness 官方 Discussions 雷达：列出/筛选/搜索官方讨论区（Ideas / Q&A / Show Your Plugins! / General / Announcements / Polls）。CLI + agent 可调用 discussions_radar 工具，输出 dsh-discussions-radar/v1 报告。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-discussions-radar"
+      },
+      "version": "0.1.0",
+      "homepage": "https://github.com/zoahdev/dsh-discussions-radar",
+      "verified": true,
+      "tags": [
+        "discussions",
+        "github",
+        "radar",
+        "community",
+        "announcements"
       ],
       "stars": 0,
       "source": {
