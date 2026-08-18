@@ -1,8 +1,8 @@
 {
   "version": 2,
   "updated": "2026-08-18",
-  "count": 913,
-  "verifiedCount": 26,
+  "count": 914,
+  "verifiedCount": 27,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
     "ui": {
@@ -703,6 +703,32 @@
         "radar",
         "community",
         "announcements"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "zoahdev",
+        "url": "https://github.com/zoahdev/dsh-subscribe"
+      }
+    },
+    {
+      "id": "dsh-readme-forge",
+      "name": "README Forge",
+      "author": "zoahdev",
+      "category": "dev",
+      "description": "Generate README.md for dsh plugin repositories from package.json + cordis.patch.yml + source layout: install/CLI/tools/dev/license sections, deterministic, read-only by default. CLI + agent-callable readme_forge tool.",
+      "description_zh": "为 dsh 插件仓库从 package.json + cordis.patch.yml + 源码布局生成 README.md：安装/CLI/工具/开发/许可证章节，确定性输出、默认只读。CLI + agent 可调用 readme_forge 工具。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-readme-forge"
+      },
+      "version": "0.1.0",
+      "homepage": "https://github.com/zoahdev/dsh-readme-forge",
+      "verified": true,
+      "tags": [
+        "readme",
+        "generator",
+        "documentation",
+        "scaffold"
       ],
       "stars": 0,
       "source": {
