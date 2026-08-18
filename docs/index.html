@@ -133,6 +133,7 @@
       <option value="stars" data-i18n="sortStars">按星标排序</option>
       <option value="verified" data-i18n="sortVerified">已验证优先</option>
       <option value="name" data-i18n="sortName">按名称</option>
+      <option value="quality" data-i18n="sortQuality">按质量分</option>
     </select>
     <div class="cats" id="cats"></div>
   </div>
@@ -205,6 +206,7 @@ const I18N = {
     sortStars: '按星标排序',
     sortVerified: '已验证优先',
     sortName: '按名称',
+    sortQuality: '按质量分',
     loading: '加载注册表…',
     loadError: '加载注册表失败，请刷新重试。',
     noMatch: '没有匹配的插件。',
@@ -255,6 +257,7 @@ const I18N = {
     sortStars: 'Top stars',
     sortVerified: 'Verified first',
     sortName: 'By name',
+    sortQuality: 'By quality',
     loading: 'Loading registry…',
     loadError: 'Failed to load the registry. Refresh to retry.',
     noMatch: 'No matching plugins.',
@@ -391,6 +394,7 @@ function sorted(list) {
   if (sort === 'stars') arr.sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0))
   if (sort === 'verified') arr.sort((a, b) => (b.verified ? 1 : 0) - (a.verified ? 1 : 0))
   if (sort === 'name') arr.sort((a, b) => a.name.localeCompare(b.name))
+  if (sort === 'quality') arr.sort((a, b) => (b.quality?.score ?? -1) - (a.quality?.score ?? -1))
   return arr
 }
 
