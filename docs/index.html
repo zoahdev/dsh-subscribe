@@ -429,8 +429,8 @@ function render() {
     const stars = typeof p.stars === 'number' && p.stars > 0 ? `<span class="stars">★ ${p.stars}</span>` : ''
     const version = p.version ? `v${esc(p.version)}` : ''
     const npmBadge = p.install && p.install.target === 'npm' ? '<span class="badge npm">npm</span>' : ''
-    return `<div class="card">
     const q = p.quality && typeof p.quality.score === 'number' ? `<span class="badge q-${esc(p.quality.grade || 'x').toLowerCase()}">Q ${p.quality.score} ${esc(p.quality.grade || '')}</span>` : ''
+    return `<div class="card">
       <div class="top">
         <h3>${esc(p.name)}</h3>
         <span class="badge ${p.verified ? 'ok' : ''}">${p.verified ? '✓ ' + t('verified') : t('community')}</span>${npmBadge}${q}
