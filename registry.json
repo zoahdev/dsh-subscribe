@@ -1,8 +1,8 @@
 {
   "version": 2,
   "updated": "2026-08-18",
-  "count": 916,
-  "verifiedCount": 29,
+  "count": 917,
+  "verifiedCount": 30,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
     "ui": {
@@ -781,6 +781,32 @@
         "storage",
         "session-logs",
         "cleanup"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "zoahdev",
+        "url": "https://github.com/zoahdev/dsh-subscribe"
+      }
+    },
+    {
+      "id": "dsh-quality-score",
+      "name": "Quality Score",
+      "author": "zoahdev",
+      "category": "dev",
+      "description": "Plugin quality scorecard for dsh: 0-100 with grade, 6 components, fix suggestions, batch leaderboard. CLI + agent-callable quality_score tool.",
+      "description_zh": "dsh 插件质量评分卡：0-100 分 + 等级 + 六项分项 + 修复建议，支持批量榜单。CLI + agent 可调用 quality_score 工具。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-quality-score"
+      },
+      "version": "0.1.0",
+      "homepage": "https://github.com/zoahdev/dsh-quality-score",
+      "verified": true,
+      "tags": [
+        "quality",
+        "scorecard",
+        "registry",
+        "rating"
       ],
       "stars": 0,
       "source": {
