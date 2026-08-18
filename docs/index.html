@@ -47,6 +47,7 @@
   .hero p { max-width:680px; margin:0 auto 22px; color:var(--muted); font-size:15px; }
   .hero .cmd { display:inline-flex; align-items:center; gap:10px; background:#0d1117; border:1px solid var(--line); border-radius:var(--radius); padding:10px 14px; font-family:ui-monospace,Consolas,monospace; font-size:13px; color:#a5d6ff; max-width:100%; overflow-x:auto; }
   .bar { background:#1e2c3c; border-radius:var(--radius); padding:12px 14px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:18px 0; }
+  .banner { background:#2d2410; border:1px solid #8a6d1a; color:#f0d77b; border-radius:var(--radius); padding:10px 14px; margin:14px 0 0; font-size:13px; line-height:1.6; }
   .bar input[type=search] { background:#2a475e; border:1px solid transparent; color:#fff; padding:9px 12px; border-radius:6px; min-width:220px; flex:1; }
   .bar select { background:#2a475e; color:var(--ink); border:0; border-radius:6px; padding:9px 10px; }
   .cats { display:flex; gap:8px; flex-wrap:wrap; width:100%; }
@@ -138,6 +139,8 @@
     <div class="cats" id="cats"></div>
   </div>
 
+  <div class="banner" data-i18n="bannerText"></div>
+
   <main class="grid" id="grid" aria-live="polite"><p class="empty" data-i18n="loading">加载注册表…</p></main>
 
   <section class="wizard">
@@ -191,7 +194,7 @@ const STORE_KEY = 'dsh-subscribe:v2'
 const PROFILE = 'web'
 const I18N = {
   zh: {
-    heroTitle: '订阅一次，一条命令装齐',
+    bannerText: '⚠ 官方 @deepseek-ai 包族 latest dist-tag 仍卡在 0.0.1-rc.1（#2763），160/325 个插件按默认安装可能解析失败——建议显式 pin 版本：dsh plugin add <pkg>@0.1.0-rc.7，或使用带版本号的安装命令。',
     heroDesc: 'DeepSeek Harness 的 Steam 式插件市场：浏览 <b id="totalCount">500+</b> 个社区插件，一键订阅，导出清单，一条命令全部同步进你的 dsh profile。',
     copy: '复制',
     copied: '已复制 ✓',
