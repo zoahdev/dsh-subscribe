@@ -1,8 +1,8 @@
 {
   "version": 2,
   "updated": "2026-08-18",
-  "count": 911,
-  "verifiedCount": 24,
+  "count": 912,
+  "verifiedCount": 25,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
     "ui": {
@@ -649,6 +649,33 @@
         "network",
         "bootstrap",
         "npmmirror"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "zoahdev",
+        "url": "https://github.com/zoahdev/dsh-subscribe"
+      }
+    },
+    {
+      "id": "dsh-timesheet",
+      "name": "Timesheet",
+      "author": "zoahdev",
+      "category": "dev",
+      "description": "Turn-based time tracking from dsh session logs: totals, per-day/project/provider/source rollups, tool-call counts, failure rates, and time-to-first-token. CLI + agent-callable timesheet tool with dsh-timesheet/v1 reports.",
+      "description_zh": "从 dsh 会话日志做基于 turn 的时间跟踪：总计、按天/项目/供应商/来源汇总、工具调用次数、失败率与首 token 延迟。CLI + agent 可调用 timesheet 工具，输出 dsh-timesheet/v1 报告。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-timesheet"
+      },
+      "version": "0.1.0",
+      "homepage": "https://github.com/zoahdev/dsh-timesheet",
+      "verified": true,
+      "tags": [
+        "timesheet",
+        "time-tracking",
+        "productivity",
+        "session-log",
+        "wakatime"
       ],
       "stars": 0,
       "source": {
