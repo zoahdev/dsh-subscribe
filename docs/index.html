@@ -428,7 +428,7 @@ function render() {
     return `<div class="card">
       <div class="top">
         <h3>${esc(p.name)}</h3>
-        <span class="badge ${p.verified ? 'ok' : ''}">${p.verified ? '✓ ' + t('verified') : t('community')}</span>${npmBadge}
+        <span class="badge ${p.verified ? 'ok' : ''}">${p.verified ? '✓ ' + t('verified') : t('community')}</span>${npmBadge}${q}
       </div>
       <div class="meta">${esc(p.author)} · ${esc(catLabel(p.category))}${version ? ' · ' + version : ''} ${stars}</div>
       <div class="desc">${esc(desc)}</div>
