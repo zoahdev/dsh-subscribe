@@ -1,8 +1,8 @@
 {
   "version": 2,
   "updated": "2026-08-18",
-  "count": 909,
-  "verifiedCount": 22,
+  "count": 911,
+  "verifiedCount": 24,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
     "ui": {
@@ -595,6 +595,60 @@
         "audit",
         "npm",
         "erresolve"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "zoahdev",
+        "url": "https://github.com/zoahdev/dsh-subscribe"
+      }
+    },
+    {
+      "id": "dsh-llms-forge",
+      "name": "LLMs Forge",
+      "author": "zoahdev",
+      "category": "dev",
+      "description": "Generate llms.txt for dsh plugin repositories from package.json + README — AI-readable discovery files, zero runtime dependencies. CLI + agent-callable llms_forge tool; read-only by default.",
+      "description_zh": "为 dsh 插件仓库从 package.json + README 生成 llms.txt（AI 可读发现文件），零运行时依赖。CLI + agent 可调用 llms_forge 工具，默认只读。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-llms-forge"
+      },
+      "version": "0.1.0",
+      "homepage": "https://github.com/zoahdev/dsh-llms-forge",
+      "verified": true,
+      "tags": [
+        "llms-txt",
+        "documentation",
+        "discovery",
+        "ai-readable"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "zoahdev",
+        "url": "https://github.com/zoahdev/dsh-subscribe"
+      }
+    },
+    {
+      "id": "dsh-cn-boot",
+      "name": "CN Boot",
+      "author": "zoahdev",
+      "category": "dev",
+      "description": "China-network bootstrap for DeepSeek Harness: probes npm/npmmirror/GitHub/HuggingFace/Gitee and local proxies, reads registry config, recommends mirrors/proxy, generates a PowerShell + bash bootstrap. Read-only by default; apply is explicit.",
+      "description_zh": "DeepSeek Harness 国内网络引导：探测 npm/npmmirror/GitHub/HuggingFace/Gitee 与本地代理，读取注册表配置，推荐镜像/代理并生成 PowerShell + bash 引导脚本。默认只读，apply 需显式开启。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-cn-boot"
+      },
+      "version": "0.1.0",
+      "homepage": "https://github.com/zoahdev/dsh-cn-boot",
+      "verified": true,
+      "tags": [
+        "china",
+        "mirror",
+        "proxy",
+        "network",
+        "bootstrap",
+        "npmmirror"
       ],
       "stars": 0,
       "source": {
