@@ -1,8 +1,8 @@
 {
   "version": 2,
   "updated": "2026-08-18",
-  "count": 914,
-  "verifiedCount": 27,
+  "count": 915,
+  "verifiedCount": 28,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
     "ui": {
@@ -729,6 +729,32 @@
         "generator",
         "documentation",
         "scaffold"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "zoahdev",
+        "url": "https://github.com/zoahdev/dsh-subscribe"
+      }
+    },
+    {
+      "id": "dsh-firstrun",
+      "name": "Firstrun",
+      "author": "zoahdev",
+      "category": "dev",
+      "description": "First-run health check for DeepSeek Harness: verifies Node/pnpm/dsh toolchain, profile, API key (names only), workspace and registry, then prints actionable next steps. CLI + agent-callable quickstart tool with dsh-firstrun/v1 reports.",
+      "description_zh": "DeepSeek Harness 首次运行体检：检查 Node/pnpm/dsh 工具链、profile、API Key（只显示名称）、工作区与注册表，并给出可执行下一步。CLI + agent 可调用 quickstart 工具，输出 dsh-firstrun/v1 报告。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-firstrun"
+      },
+      "version": "0.1.0",
+      "homepage": "https://github.com/zoahdev/dsh-firstrun",
+      "verified": true,
+      "tags": [
+        "quickstart",
+        "onboarding",
+        "diagnostics",
+        "setup"
       ],
       "stars": 0,
       "source": {
