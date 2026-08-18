@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "updated": "2026-08-16",
-  "count": 908,
-  "verifiedCount": 21,
+  "updated": "2026-08-18",
+  "count": 909,
+  "verifiedCount": 22,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
     "ui": {
@@ -567,6 +567,34 @@
       "tags": [
         "mcp",
         "official"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "zoahdev",
+        "url": "https://github.com/zoahdev/dsh-subscribe"
+      }
+    },
+    {
+      "id": "dsh-dep-audit",
+      "name": "Dep Audit",
+      "author": "zoahdev",
+      "category": "security",
+      "description": "Dependency supply-chain hygiene audit for DeepSeek Harness: peer-range resolvability, broken dist-tag detection (#2763 class), stale/missing-license/non-registry deps, and installed-vs-declared drift. CLI + agent-callable dep_audit tool with dsh-dep-audit/v1 reports.",
+      "description_zh": "依赖供应链卫生审计：peer 范围可解析性、坏 dist-tag 检测（#2763 类）、过期/缺许可证/非注册表来源依赖，以及安装版本与声明的漂移。CLI + agent 可调用 dep_audit 工具，输出 dsh-dep-audit/v1 报告。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-dep-audit"
+      },
+      "version": "0.1.0",
+      "homepage": "https://github.com/zoahdev/dsh-dep-audit",
+      "verified": true,
+      "tags": [
+        "security",
+        "supply-chain",
+        "dependencies",
+        "audit",
+        "npm",
+        "erresolve"
       ],
       "stars": 0,
       "source": {
