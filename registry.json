@@ -1,8 +1,8 @@
 {
   "version": 2,
   "updated": "2026-08-18",
-  "count": 915,
-  "verifiedCount": 28,
+  "count": 916,
+  "verifiedCount": 29,
   "note": "verified=true means zoahdev audited CI/release/install. Community entries are mirrored from awesome-dsh-plugin.com (see source.url) and listed for discovery; verify before trusting.",
   "categories": {
     "ui": {
@@ -755,6 +755,32 @@
         "onboarding",
         "diagnostics",
         "setup"
+      ],
+      "stars": 0,
+      "source": {
+        "name": "zoahdev",
+        "url": "https://github.com/zoahdev/dsh-subscribe"
+      }
+    },
+    {
+      "id": "dsh-disk-audit",
+      "name": "Disk Audit",
+      "author": "zoahdev",
+      "category": "dev",
+      "description": "Disk-usage audit for dsh data directories: total size, per-directory breakdown, largest files, oversized-file warnings (session logs can hit hundreds of MB) and cleanup suggestions. CLI + agent-callable disk_audit tool with dsh-disk-audit/v1 reports.",
+      "description_zh": "dsh 数据目录磁盘占用审计：总大小、按目录拆分、最大文件、超大文件告警（会话日志可达数百 MB）与清理建议。CLI + agent 可调用 disk_audit 工具，输出 dsh-disk-audit/v1 报告。",
+      "install": {
+        "target": "npm",
+        "spec": "dsh-disk-audit"
+      },
+      "version": "0.1.0",
+      "homepage": "https://github.com/zoahdev/dsh-disk-audit",
+      "verified": true,
+      "tags": [
+        "disk-usage",
+        "storage",
+        "session-logs",
+        "cleanup"
       ],
       "stars": 0,
       "source": {
