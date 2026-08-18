@@ -57,6 +57,10 @@
   .card .top { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
   .card h3 { margin:0; color:#fff; font-size:16px; word-break:break-word; }
   .badge { font-size:11px; padding:2px 9px; border-radius:12px; background:#2a475e; color:var(--muted); white-space:nowrap; }
+  .badge.q-a { background:#2a6b3d; color:#a3d9b1; }
+  .badge.q-b { background:#7a5c2e; color:#e6c078; }
+  .badge.q-c { background:#6b3a2a; color:#e0a08f; }
+  .badge.q-f { background:#5e2020; color:#e0a0a0; }
   .badge.ok { background:var(--green); color:var(--green-ink); }
   .badge.npm { background:#cb3837; color:#fff; }
   .meta { color:var(--muted); font-size:12px; }
@@ -426,6 +430,7 @@ function render() {
     const version = p.version ? `v${esc(p.version)}` : ''
     const npmBadge = p.install && p.install.target === 'npm' ? '<span class="badge npm">npm</span>' : ''
     return `<div class="card">
+    const q = p.quality && typeof p.quality.score === 'number' ? `<span class="badge q-${esc(p.quality.grade || 'x').toLowerCase()}">Q ${p.quality.score} ${esc(p.quality.grade || '')}</span>` : ''
       <div class="top">
         <h3>${esc(p.name)}</h3>
         <span class="badge ${p.verified ? 'ok' : ''}">${p.verified ? '✓ ' + t('verified') : t('community')}</span>${npmBadge}${q}
